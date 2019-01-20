@@ -1,0 +1,44 @@
+{
+    "name": "Controls",
+    "maps": [
+        {
+            "name": "Controler",
+            "id": "3c95302e-3615-4b11-8e77-1fc92395c933",
+            "actions": [
+                {
+                    "name": "Fire",
+                    "id": "2fcd0d15-e1a3-4d58-abc0-a1fe36f68813",
+                    "expectedControlLayout": "Button",
+                    "bindings": []
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Fire",
+                    "chainWithPrevious": false,
+                    "isComposite": false,
+                    "isPartOfComposite": false,
+                    "modifiers": ""
+                },
+                {
+                    "name": "",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Fire",
+                    "chainWithPrevious": false,
+                    "isComposite": false,
+                    "isPartOfComposite": false,
+                    "modifiers": ""
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

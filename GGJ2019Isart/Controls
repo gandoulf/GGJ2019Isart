@@ -1,0 +1,115 @@
+// GENERATED AUTOMATICALLY FROM 'Assets/Controls.inputactions'
+
+using System;
+using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.Experimental.Input;
+
+
+[Serializable]
+public class Controls : InputActionAssetReference
+{
+    public Controls()
+    {
+    }
+    public Controls(InputActionAsset asset)
+        : base(asset)
+    {
+    }
+    private bool m_Initialized;
+    private void Initialize()
+    {
+        // Controler
+        m_Controler = asset.GetActionMap("Controler");
+        m_Controler_Fire = m_Controler.GetAction("Fire");
+        if (m_ControlerFireActionStarted != null)
+            m_Controler_Fire.started += m_ControlerFireActionStarted.Invoke;
+        if (m_ControlerFireActionPerformed != null)
+            m_Controler_Fire.performed += m_ControlerFireActionPerformed.Invoke;
+        if (m_ControlerFireActionCancelled != null)
+            m_Controler_Fire.cancelled += m_ControlerFireActionCancelled.Invoke;
+        m_Initialized = true;
+    }
+    private void Uninitialize()
+    {
+        if (m_ControlerActionsCallbackInterface != null)
+        {
+            Controler.SetCallbacks(null);
+        }
+        m_Controler = null;
+        m_Controler_Fire = null;
+        if (m_ControlerFireActionStarted != null)
+            m_Controler_Fire.started -= m_ControlerFireActionStarted.Invoke;
+        if (m_ControlerFireActionPerformed != null)
+            m_Controler_Fire.performed -= m_ControlerFireActionPerformed.Invoke;
+        if (m_ControlerFireActionCancelled != null)
+            m_Controler_Fire.cancelled -= m_ControlerFireActionCancelled.Invoke;
+        m_Initialized = false;
+    }
+    public void SetAsset(InputActionAsset newAsset)
+    {
+        if (newAsset == asset) return;
+        var ControlerCallbacks = m_ControlerActionsCallbackInterface;
+        if (m_Initialized) Uninitialize();
+        asset = newAsset;
+        Controler.SetCallbacks(ControlerCallbacks);
+    }
+    public override void MakePrivateCopyOfActions()
+    {
+        SetAsset(ScriptableObject.Instantiate(asset));
+    }
+    // Controler
+    private InputActionMap m_Controler;
+    private IControlerActions m_ControlerActionsCallbackInterface;
+    private InputAction m_Controler_Fire;
+    [SerializeField] private ActionEvent m_ControlerFireActionStarted;
+    [SerializeField] private ActionEvent m_ControlerFireActionPerformed;
+    [SerializeField] private ActionEvent m_ControlerFireActionCancelled;
+    public struct ControlerActions
+    {
+        private Controls m_Wrapper;
+        public ControlerActions(Controls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Fire { get { return m_Wrapper.m_Controler_Fire; } }
+        public ActionEvent FireStarted { get { return m_Wrapper.m_ControlerFireActionStarted; } }
+        public ActionEvent FirePerformed { get { return m_Wrapper.m_ControlerFireActionPerformed; } }
+        public ActionEvent FireCancelled { get { return m_Wrapper.m_ControlerFireActionCancelled; } }
+        public InputActionMap Get() { return m_Wrapper.m_Controler; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled { get { return Get().enabled; } }
+        public InputActionMap Clone() { return Get().Clone(); }
+        public static implicit operator InputActionMap(ControlerActions set) { return set.Get(); }
+        public void SetCallbacks(IControlerActions instance)
+        {
+            if (m_Wrapper.m_ControlerActionsCallbackInterface != null)
+            {
+                Fire.started -= m_Wrapper.m_ControlerActionsCallbackInterface.OnFire;
+                Fire.performed -= m_Wrapper.m_ControlerActionsCallbackInterface.OnFire;
+                Fire.cancelled -= m_Wrapper.m_ControlerActionsCallbackInterface.OnFire;
+            }
+            m_Wrapper.m_ControlerActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                Fire.started += instance.OnFire;
+                Fire.performed += instance.OnFire;
+                Fire.cancelled += instance.OnFire;
+            }
+        }
+    }
+    public ControlerActions @Controler
+    {
+        get
+        {
+            if (!m_Initialized) Initialize();
+            return new ControlerActions(this);
+        }
+    }
+    [Serializable]
+    public class ActionEvent : UnityEvent<InputAction.CallbackContext>
+    {
+    }
+}
+public interface IControlerActions
+{
+    void OnFire(InputAction.CallbackContext context);
+}
