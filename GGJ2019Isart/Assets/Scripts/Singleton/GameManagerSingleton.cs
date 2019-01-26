@@ -17,6 +17,7 @@ public class GameManagerSingleton : Singleton<GameManagerSingleton>
 	public int rage;
 	public float timer;
 	public List<int> scoreNeeded;
+	public List<int> rageLevel;
 
 	private HUD hud;
 
@@ -71,6 +72,6 @@ public class GameManagerSingleton : Singleton<GameManagerSingleton>
 	{
 		this.SpawnPlayer();
 		this.hud = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUD>();
-		//this.hud.maxScore = this.scoreNeeded[this.scoreNeeded.Count - 1];
+		this.hud.maxScore = this.scoreNeeded[this.scoreNeeded.Count - 1];
 	}
 }
