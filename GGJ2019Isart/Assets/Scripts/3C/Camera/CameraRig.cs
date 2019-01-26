@@ -29,6 +29,10 @@ public class CameraRig : MonoBehaviour
 	{
 		this.targets = GameObject.FindGameObjectsWithTag("Player");
 		UnityEngine.Assertions.Assert.IsTrue(this.targets.Length > 0, "Players were not found.");
+		if (this.targets.Length == 1)
+		{
+			this.minSize = 8.0f;
+		}
 		this.SetStartPositionAndSize();
 	}
 
