@@ -17,6 +17,7 @@ public class GameManagerSingleton : Singleton<GameManagerSingleton>
 	private void Start()
 	{
 		SceneManager.sceneLoaded += this.OnSceneLoaded;
+		DontDestroyOnLoad(this.gameObject);
 	}
 
 	public void SpawnPlayer()
