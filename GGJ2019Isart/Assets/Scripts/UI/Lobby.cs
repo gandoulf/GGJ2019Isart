@@ -8,6 +8,7 @@ public class Lobby : MonoBehaviour
 {
 	[SerializeField] private List<GameObject> slotList;
 	[SerializeField] private List<GameObject> textList;
+	[SerializeField] private string sceneToLaunch;
 
 	private void Start()
 	{
@@ -180,6 +181,6 @@ public class Lobby : MonoBehaviour
 
 	private void LaunchGame()
 	{
-		SceneManager.LoadScene("Game");
+		SceneManager.LoadScene(this.sceneToLaunch);
 	}
 }
