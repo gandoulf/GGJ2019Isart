@@ -10,7 +10,7 @@ public abstract class AUsable : MonoBehaviour
         SPECIAL
     }
 
-    [SerializeField] protected bool bIsUseable = true;
+    protected bool bIsUseable = true;
     public virtual bool IsUseable { get { return bIsUseable; } }
 
     private Material baseMat;

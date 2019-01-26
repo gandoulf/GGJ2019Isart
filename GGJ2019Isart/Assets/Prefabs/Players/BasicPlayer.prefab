@@ -87,6 +87,7 @@ MonoBehaviour:
   throwingPower: 10
   slowWalk: {fileID: 433685090208486226}
   FastWalk: {fileID: 3523796109028156796}
+  intervalBetweenStep: 0.5
 --- !u!95 &6873625752948164279
 Animator:
   serializedVersion: 3
@@ -198,7 +199,7 @@ GameObject:
   - component: {fileID: 7740215863283507269}
   m_Layer: 9
   m_Name: FastWalk
-  m_TagString: Untagged
+  m_TagString: SoundEmission
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -276,7 +277,7 @@ GameObject:
   - component: {fileID: 86075964224636629}
   m_Layer: 9
   m_Name: SlowWalk
-  m_TagString: Untagged
+  m_TagString: SoundEmission
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

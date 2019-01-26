@@ -163,7 +163,7 @@ GameObject:
   - component: {fileID: 1575709484191079063}
   m_Layer: 5
   m_Name: HUD
-  m_TagString: Untagged
+  m_TagString: HUD
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -265,7 +265,6 @@ MonoBehaviour:
   score: {fileID: 5541602781792137988}
   timer: {fileID: 8401271121247722063}
   rage: {fileID: 7091227858438672930}
-  maxScore: 100
 --- !u!1 &7990839391122532083
 GameObject:
   m_ObjectHideFlags: 0
