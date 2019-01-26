@@ -6,6 +6,7 @@ TagManager:
   tags:
   - SoundEmission
   - Nonne
+  - Wall
   layers:
   - Default
   - TransparentFX

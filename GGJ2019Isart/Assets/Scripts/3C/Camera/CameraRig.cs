@@ -29,6 +29,10 @@ public class CameraRig : MonoBehaviour
 	{
 		this.targets = GameObject.FindGameObjectsWithTag("Player");
 		UnityEngine.Assertions.Assert.IsTrue(this.targets.Length > 0, "Players were not found.");
+		if (this.targets.Length == 1)
+		{
+			this.minSize = 8.0f;
+		}
 		this.SetStartPositionAndSize();
 	}
 
@@ -39,8 +43,9 @@ public class CameraRig : MonoBehaviour
 
 		// Change the size of the camera based.
 		this.Zoom();
+		// Raycast in order to change wall alpha
+		this.CheckWall();
 	}
-
 
 	private void Move()
 	{
@@ -124,7 +129,6 @@ public class CameraRig : MonoBehaviour
 		return size;
 	}
 
-
 	public void SetStartPositionAndSize()
 	{
 		// Find the desired position.
@@ -135,5 +139,23 @@ public class CameraRig : MonoBehaviour
 
 		// Find and set the required size of the camera.
 		this.currentCamera.orthographicSize = this.FindRequiredSize();
+	}
+
+	private void CheckWall()
+	{
+		int nbPlayer = GameManagerSingleton.Instance.indexSlotDictionnary.Count;
+
+		for (int i = 0; i < nbPlayer; i++)
+		{
+			RaycastHit hit;
+			
+			if (Physics.Raycast(this.transform.position, this.transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity))
+			{
+				if (hit.collider.CompareTag("Wall") == true)
+				{
+					hit.collider.gameObject.GetComponent<Wall>().ChangeAlpha(true);
+				}
+			}
+		}
 	}
 }

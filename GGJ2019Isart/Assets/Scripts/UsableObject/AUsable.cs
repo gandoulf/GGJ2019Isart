@@ -22,4 +22,25 @@ public abstract class AUsable : MonoBehaviour
     {
 
     }
+
+	public virtual void OnObjectFocused(bool isFocused)
+	{
+
+	}
+
+	public virtual void OnTriggerEnter(Collider collider)
+	{
+		if (collider.CompareTag("Player") == true)
+		{
+			collider.gameObject.GetComponent<MainController>().OnObjectNearEnter(this);
+		}
+	}
+
+	public virtual void OnTriggerExit(Collider collider)
+	{
+		if (collider.CompareTag("Player") == true)
+		{
+			collider.gameObject.GetComponent<MainController>().OnObjectNearExit(this);
+		}
+	}
 }

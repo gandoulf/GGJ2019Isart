@@ -67,19 +67,23 @@ public class Lobby : MonoBehaviour
 				this.Ready(4);
 			}
 		}
-		if (Input.GetButtonDown("Joy1Special") && GameManagerSingleton.Instance.indexSlotDictionnary.ContainsKey(1) && this.slotList[GameManagerSingleton.Instance.indexSlotDictionnary[1]].GetComponent<Image>().color != Color.green)
+		if (Input.GetButtonDown("Joy1Special") && GameManagerSingleton.Instance.indexSlotDictionnary.ContainsKey(1) &&
+			this.slotList[GameManagerSingleton.Instance.indexSlotDictionnary[1]].GetComponent<Image>().color != Color.green)
 		{
 			this.Leave("Joy1Special");
 		}
-		else if (Input.GetButtonDown("Joy2Special") && GameManagerSingleton.Instance.indexSlotDictionnary.ContainsKey(2) && this.slotList[GameManagerSingleton.Instance.indexSlotDictionnary[2]].GetComponent<Image>().color != Color.green)
+		else if (Input.GetButtonDown("Joy2Special") && GameManagerSingleton.Instance.indexSlotDictionnary.ContainsKey(2) &&
+			this.slotList[GameManagerSingleton.Instance.indexSlotDictionnary[2]].GetComponent<Image>().color != Color.green)
 		{
 			this.Leave("Joy2Special");
 		}
-		else if (Input.GetButtonDown("Joy3Special") && GameManagerSingleton.Instance.indexSlotDictionnary.ContainsKey(3) && this.slotList[GameManagerSingleton.Instance.indexSlotDictionnary[3]].GetComponent<Image>().color != Color.green)
+		else if (Input.GetButtonDown("Joy3Special") && GameManagerSingleton.Instance.indexSlotDictionnary.ContainsKey(3) &&
+			this.slotList[GameManagerSingleton.Instance.indexSlotDictionnary[3]].GetComponent<Image>().color != Color.green)
 		{
 			this.Leave("Joy3Special");
 		}
-		else if (Input.GetButtonDown("Joy4Special") && GameManagerSingleton.Instance.indexSlotDictionnary.ContainsKey(4) && this.slotList[GameManagerSingleton.Instance.indexSlotDictionnary[4]].GetComponent<Image>().color != Color.green)
+		else if (Input.GetButtonDown("Joy4Special") && GameManagerSingleton.Instance.indexSlotDictionnary.ContainsKey(4) &&
+			this.slotList[GameManagerSingleton.Instance.indexSlotDictionnary[4]].GetComponent<Image>().color != Color.green)
 		{
 			this.Leave("Joy4Special");
 		}

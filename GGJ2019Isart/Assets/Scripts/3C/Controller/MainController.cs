@@ -29,13 +29,10 @@ public class MainController : MonoBehaviour
 	private bool isRunningHold = false;
 	private float[] axisValue = new float[2];
 
-	private bool canDoAction = false;
-	private bool canMash = false;
-	private bool canHide = false;
 	private bool isHidden = false;
 
-	private List<GameObject> activableOjectList = new List<GameObject>();
-	private GameObject currentActiveObject = null;
+	private List<AUsable> usableOjectList = new List<AUsable>();
+	private AUsable currentUsableObject = null;
 
 	public void Awake()
 	{
@@ -55,8 +52,28 @@ public class MainController : MonoBehaviour
 		this.CreateInputNameArray();
 	}
 
-    // Update is called once per frame
-    void Update()
+	public void OnObjectNearEnter(AUsable usableScript)
+	{
+		if (this.usableOjectList.Contains(usableScript) == false)
+		{
+			this.usableOjectList.Add(usableScript);
+		}
+	}
+
+	public void OnObjectNearExit(AUsable usableScript)
+	{
+		if (this.usableOjectList.Contains(usableScript) == false)
+		{
+			if (this.currentUsableObject == usableScript)
+			{
+				this.UnSelectUsableObject();
+			}
+			this.usableOjectList.Remove(usableScript);
+		}
+	}
+
+	// Update is called once per frame
+	void Update()
     {
 		if (this.currentCharacter.IsCaptured == true)
 			return;
@@ -78,19 +95,20 @@ public class MainController : MonoBehaviour
 
 	void UpdateCurrentActiveObject()
 	{
-		foreach (GameObject activableObject in this.activableOjectList)
+		foreach (AUsable usableObject in this.usableOjectList)
 		{
-			if (this.currentActiveObject == null ||
-				Vector3.Distance(activableObject.transform.position, this.transform.position) < Vector3.Distance(this.currentActiveObject.transform.position, this.transform.position))
+			if (this.currentUsableObject == null ||
+				Vector3.Distance(usableObject.transform.position, this.transform.position) < Vector3.Distance(this.currentUsableObject.transform.position, this.transform.position))
 			{
-				if (this.currentActiveObject != null)
+				if (this.currentUsableObject != null)
 				{
+					this.UnSelectUsableObject();
 					//Stop showing button hover object
-					//this.currentActiveObject->Bla
+					this.currentUsableObject.OnObjectFocused(false);
 				}
-				this.currentActiveObject = activableObject;
+				this.currentUsableObject = usableObject;
 				//Show button hover object
-				//this.currentActiveObject->Bli
+				this.currentUsableObject.OnObjectFocused(true);
 			}
 		}
 	}
@@ -118,30 +136,32 @@ public class MainController : MonoBehaviour
 			this.isRunningHold = true;
 		}
 
-		//Button
-		if (Input.GetButtonDown(this.inputNameArray[(int)eInputType.ACTION]) == true)
+		if (this.currentUsableObject != null)
 		{
-			//this.currentActiveObject->TriggerObject(true);
-		}
-		else if (Input.GetButtonUp(this.inputNameArray[(int)eInputType.ACTION]) == true)
-		{
-			//this.currentActiveObject->TriggerObject(false);
-		}
-		else if ((this.canHide == true || this.isHidden == true) && Input.GetButtonDown(this.inputNameArray[(int)eInputType.SPECIAL]) == true)
-		{
-			if (this.isHidden == true)
+			//Button
+			if (Input.GetButtonDown(this.inputNameArray[(int)eInputType.ACTION]) == true)
 			{
-				// Exit hiding place
-				//this.currentActiveObject->bla
+				this.currentUsableObject.OnButtonPressed(AUsable.ButtonType.ACTION, this.gameObject);
 			}
-			else
+			else if (Input.GetButtonUp(this.inputNameArray[(int)eInputType.ACTION]) == true)
 			{
-				// Hide
-				//this.currentActiveObject->bli;
+				this.currentUsableObject.OnButtonReleased(AUsable.ButtonType.ACTION);
 			}
-
+			else if (Input.GetButtonDown(this.inputNameArray[(int)eInputType.SPECIAL]) == true)
+			{
+				if (this.isHidden == false)
+				{
+					// Exit hiding place
+					this.currentUsableObject.OnButtonPressed(AUsable.ButtonType.SPECIAL, this.gameObject);
+				}
+				else
+				{
+					// Hide
+					this.currentUsableObject.OnButtonReleased(AUsable.ButtonType.SPECIAL);
+				}
+			}
 		}
-		else if (this.playerSlotId == 0 && Input.GetButtonDown(this.inputNameArray[(int)eInputType.START]) == true)
+		if (this.playerSlotId == 0 && Input.GetButtonDown(this.inputNameArray[(int)eInputType.START]) == true)
 		{
 			// Start menu
 		}
@@ -161,5 +181,12 @@ public class MainController : MonoBehaviour
 		pos = this.transform.position;
 		pos.y = 1.0f;
 		this.transform.position = pos;
+	}
+
+	void UnSelectUsableObject()
+	{
+		this.currentUsableObject.OnButtonReleased(AUsable.ButtonType.ACTION);
+		this.currentUsableObject.OnObjectFocused(false);
+		this.currentUsableObject = null;
 	}
 }
