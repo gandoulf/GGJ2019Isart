@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 6541299388325045586}
   - component: {fileID: 7897207175585096178}
   - component: {fileID: 2496149574280616291}
-  - component: {fileID: 2925996089599050317}
+  - component: {fileID: 2515956551231008391}
+  - component: {fileID: 1014805808850959602}
   m_Layer: 0
   m_Name: Mur_01_Angle
   m_TagString: Untagged
@@ -78,8 +79,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &2925996089599050317
-MeshCollider:
+--- !u!65 &2515956551231008391
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -88,7 +89,19 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300008, guid: 653c173b956bd19498d74245e8dc64c0, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.24, y: 1.0002123, z: 3.0000007}
+  m_Center: {x: 0.9, y: 0.31034923, z: 1.5000004}
+--- !u!65 &1014805808850959602
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8475285418885168609}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0098678, y: 0.24, z: 3.0000007}
+  m_Center: {x: 0.5049339, y: -0.09, z: 1.5000004}
