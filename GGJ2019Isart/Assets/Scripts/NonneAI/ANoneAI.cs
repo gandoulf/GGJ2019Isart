@@ -26,6 +26,11 @@ public abstract class ANoneAI : MonoBehaviour
 
     //chasing player
     private bool bIsChasing = false;
+    private bool IsBreakTime = false;
+
+    [SerializeField]
+    private float breakTime;
+    private float actualTime = 0;
 
 
     // Start is called before the first frame update
@@ -38,16 +43,36 @@ public abstract class ANoneAI : MonoBehaviour
     // Update is called once per frame
     protected virtual void FixedUpdate()
     {
-        if (bIsChasing == false)
-            FindANewPath();
+        if (IsBreakTime)
+            Waiting();
         else
-            KeepChasing();
+        {
+            if (bIsChasing == false)
+                FindANewPath();
+            else
+                KeepChasing();
+        }
+    }
 
+    protected virtual void Waiting()
+    {
+        if (actualTime < breakTime)
+            actualTime += Time.deltaTime;
+        else
+        {
+            actualTime = 0;
+            IsBreakTime = false;
+        }
     }
 
     protected virtual void KeepChasing()
     {
-        if (destination.transform.position != directionPoint.transform.position)
+        if (destination.GetComponent<MainCharacter>().IsCaptured)
+        {
+            ResetDestination();
+            IsBreakTime = true;
+        }
+        else if (destination.transform.position != directionPoint.transform.position)
         {
             agent.SetDestination(destination.transform.position);
             directionPoint.transform.position = destination.transform.position;
@@ -84,6 +109,11 @@ public abstract class ANoneAI : MonoBehaviour
         }
     }
 
+    public virtual void NonneToClose()
+    {
+        ResetDestination();
+    }
+
     protected virtual void ResetDestination()
     {
         bIsChasing = false;
@@ -100,10 +130,10 @@ public abstract class ANoneAI : MonoBehaviour
         {
             float objectDistance = Vector3.Distance(transform.position, other.transform.position);
             float maxDistance = SoundDetection.radius + other.GetComponent<SphereCollider>().radius;
-            Debug.Log("objectDistance = " + objectDistance + " maxDistance = " + maxDistance + " result = " + objectDistance / maxDistance);
-
             ASoundEmitter tmp = other.gameObject.GetComponent<ASoundEmitter>();
-            if (tmp != null && tmp.SoundWeight * (1 - (objectDistance / maxDistance)) > attractionForce)
+            Debug.Log("objectDistance = " + objectDistance + " maxDistance = " + maxDistance + " result = " + tmp.SoundWeight * (1 - (objectDistance / maxDistance)));
+
+           if (tmp != null && tmp.SoundWeight * (1 - (objectDistance / maxDistance)) > attractionForce)
             {
                 changeDestination(tmp, tmp.SoundWeight * (1 - (objectDistance / maxDistance)));
             }
@@ -112,7 +142,7 @@ public abstract class ANoneAI : MonoBehaviour
 
     public virtual void ViewTriggerEvent(GameObject other)
     {
-        if (other.tag == "Player" && bIsChasing == false)
+        if (other.tag == "Player" && bIsChasing == false && !other.GetComponent<MainCharacter>().IsCaptured)
         {
             Debug.Log("kidssssss");
             ResetDestination();

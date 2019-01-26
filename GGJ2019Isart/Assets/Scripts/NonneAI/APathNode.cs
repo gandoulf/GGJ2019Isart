@@ -21,6 +21,26 @@ public abstract class APathNode : MonoBehaviour
 
     public virtual GameObject getMostInterestingPath(GameObject previousNode)
     {
+        bool randomDirection = true;
+        APathNode tmp = null;
+        foreach (var node in pathNodes)
+        {
+            if (tmp == null)
+            {
+                tmp = node;
+            }
+            else
+            {
+                if (tmp.SoundEmitter.SoundWeight != node.SoundEmitter.SoundWeight)
+                {
+                    randomDirection = false;
+                    break;
+                }
+            }
+        }
+        if (randomDirection)
+            return (pathNodes[UnityEngine.Random.Range(0, pathNodes.Length)].gameObject);
+
         APathNode returnNode = null;
         foreach (var node in pathNodes)
         {

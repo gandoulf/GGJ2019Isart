@@ -31,6 +31,7 @@ public class SoundEmitter : ASoundEmitter
         base.Start();
         sphereCollider = GetComponent<SphereCollider>();
         sphereCollider.enabled = false;
+        sphereCollider.isTrigger = true;
         GetComponent<Rigidbody>().isKinematic = true;
         maxRange = sphereCollider.radius;
     }

@@ -15,13 +15,13 @@ public class ADetectionAI : MonoBehaviour
     protected OnCollision collisionEvent;
 
     protected SphereCollider sphereCollider;
-    public float radius { get { return sphereCollider.radius; } }
+    public float radius { get { return BaseRadius / 2.0f; } }
     private float BaseRadius;
 
     protected virtual void Start()
     {
         sphereCollider = GetComponent<SphereCollider>();
-        BaseRadius = sphereCollider.radius;
+        BaseRadius = gameObject.transform.localScale.x;
     }
 
     public virtual void SetRange(float range)
@@ -32,13 +32,13 @@ public class ADetectionAI : MonoBehaviour
     public virtual void ResetCollider()
     {
         sphereCollider.enabled = false;
-        sphereCollider.radius = 0;
+        gameObject.transform.localScale = new Vector3(0.0f, 0.0f, 0.0f);
         Invoke("SetBackValue", 0.1f);
     }
 
     protected virtual void SetBackValue()
     {
         sphereCollider.enabled = true;
-        sphereCollider.radius = BaseRadius;
+        gameObject.transform.localScale = new Vector3(BaseRadius, 0.05f, BaseRadius);
     }
 }
