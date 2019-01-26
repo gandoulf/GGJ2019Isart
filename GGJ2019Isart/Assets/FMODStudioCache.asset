@@ -14,16 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 114257199397846842}
-  - {fileID: 114928317635155612}
+  - {fileID: 114329111999458214}
   EditorEvents:
   - {fileID: 114772967308144780}
   - {fileID: 114941252186191570}
   - {fileID: 114982815179832586}
   - {fileID: 114319401271913256}
   - {fileID: 114872179367344976}
-  MasterBankRef: {fileID: 114928317635155612}
+  MasterBankRef: {fileID: 114329111999458214}
   StringsBankRef: {fileID: 114257199397846842}
-  stringsBankWriteTime: 636841056407677877
+  stringsBankWriteTime: 636841064643834846
   cacheVersion: 2
 --- !u!114 &114201874220556704
 MonoBehaviour:
@@ -70,7 +70,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: Assets\Audio\Desktop\Master Bank.strings.bank
-  lastModified: 636841056407677877
+  lastModified: 636841064643834846
   LoadResult: 0
   FileSizes:
   - Name: 
@@ -91,13 +91,65 @@ MonoBehaviour:
   Path: event:/Action_Cabinet_02
   guid: 1739a5d44a36fc4dab24da9f71a77739
   Banks:
-  - {fileID: 114928317635155612}
+  - {fileID: 114329111999458214}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &114329111999458214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: D:\Users\Utilisateur\Desktop\GGJ 2019\GGJ2019Isart\GGJ2019Isart\Assets\Audio\Desktop\Master
+    Bank.bank
+  lastModified: 636841064644832225
+  LoadResult: 0
+  FileSizes:
+  - Name: 
+    Value: 4873280
+  Exists: 1
+--- !u!114 &114330918957675778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: State
+  Min: 0
+  Max: 3
+  Default: 0
+--- !u!114 &114487999385255496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Run
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114721621180787898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,13 +181,13 @@ MonoBehaviour:
   Path: event:/Player_FTS
   guid: 13aa3c921fe87d4898faeb6bf4ad5c06
   Banks:
-  - {fileID: 114928317635155612}
+  - {fileID: 114329111999458214}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 114904096422984624}
-  - {fileID: 114228579148484726}
+  - {fileID: 114981443585415474}
+  - {fileID: 114487999385255496}
   MinDistance: 1
   MaxDistance: 20
 --- !u!114 &114872179367344976
@@ -153,7 +205,7 @@ MonoBehaviour:
   Path: event:/Action_Cross_01
   guid: 56a94267400f16458548354f9145e938
   Banks:
-  - {fileID: 114928317635155612}
+  - {fileID: 114329111999458214}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -210,14 +262,30 @@ MonoBehaviour:
   Path: event:/Music_LVL
   guid: 61623ca7ae29f74fa267754a64837b30
   Banks:
-  - {fileID: 114928317635155612}
+  - {fileID: 114329111999458214}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 114201874220556704}
+  - {fileID: 114330918957675778}
   MinDistance: 0
   MaxDistance: 0
+--- !u!114 &114981443585415474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Texture
+  Min: 0
+  Max: 3
+  Default: 0
 --- !u!114 &114982815179832586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,7 +301,7 @@ MonoBehaviour:
   Path: event:/Action_Glass
   guid: a9185e2f2db3b5499ab3a125d92a19b1
   Banks:
-  - {fileID: 114928317635155612}
+  - {fileID: 114329111999458214}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
