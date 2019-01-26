@@ -15,9 +15,9 @@ public class MainController : MonoBehaviour
 		ACTION,
 		SPECIAL
 	}
-	// To put in private after the lobby is done
-	public int playerJoyId = -1;
-	public int playerSlotId = -1;
+
+	private int playerJoyId = -1;
+	private int playerSlotId = -1;
 
 	private MainCharacter currentCharacter;
 	private CharacterController characterController;
@@ -45,9 +45,6 @@ public class MainController : MonoBehaviour
 		this.inputNameArray = new string[nbInputTypes];
 
 		Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Player"));
-
-		// To remove when the lobby is done
-		this.Init(playerJoyId, playerSlotId);
 	}
 
 	public void Init(int joyId, int slotId)
