@@ -14,13 +14,16 @@ public abstract class AUsable : MonoBehaviour
     public virtual bool IsUseable { get { return bIsUseable; } }
 
     private Material baseMat;
+    [SerializeField]
     private Renderer renderer;
     private List<GameObject> players = new List<GameObject>();
 
     protected virtual void Start()
     {
-        renderer = GetComponent<Renderer>();
-        baseMat = renderer.material;
+        if (!renderer)
+            renderer = GetComponent<Renderer>();
+        if (renderer)
+            baseMat = renderer.material;
     }
 
     public virtual void OnButtonPressed(ButtonType type, GameObject player)
@@ -44,7 +47,8 @@ public abstract class AUsable : MonoBehaviour
 		{
 			collider.gameObject.GetComponent<MainController>().OnObjectNearEnter(this);
             players.Add(collider.gameObject);
-            setMaterial();
+            if (renderer)
+                setMaterial();
         }
     }
 
@@ -54,7 +58,8 @@ public abstract class AUsable : MonoBehaviour
 		{
 			collider.gameObject.GetComponent<MainController>().OnObjectNearExit(this);
             players.Remove(collider.gameObject);
-            setMaterial();
+            if (renderer)
+                setMaterial();
         }
     }
 
