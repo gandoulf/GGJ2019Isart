@@ -89,11 +89,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2140865238}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.85, y: 0.55, z: 0.43}
+  m_Center: {x: -0.03, y: 0, z: 0.24}
 --- !u!1001 &2454148371964032496
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -293,7 +293,8 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 4300002, guid: f74635f0295731840bbbf3030b6d4d23, type: 3}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2140865239, guid: 2a8a7b13a975fa644baa21ad1384f9e4, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2a8a7b13a975fa644baa21ad1384f9e4, type: 3}
 --- !u!4 &8624661191250165139 stripped
 Transform:
