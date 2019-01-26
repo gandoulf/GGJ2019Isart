@@ -1,21 +1,22 @@
-﻿using System.Collections;
+﻿using FMODUnity;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class MusicManager : Singleton<MusicManager>
 {
+	private StudioEventEmitter emitter;
+
 	// (Optional) Prevent non-singleton constructor use.
 	protected MusicManager() { }
 
-	// Start is called before the first frame update
-	void Start()
-    {
-        
-    }
+	private void Start()
+	{
+		this.emitter = this.GetComponent<StudioEventEmitter>();
+	}
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	public void UpdateLayerMusic(int layer)
+	{
+		this.emitter.SetParameter("State", layer);
+	}
 }
