@@ -22,12 +22,15 @@ public class MainController : MonoBehaviour
 
 	private MainCharacter currentCharacter;
 	private CharacterController characterController;
+	private SpriteRenderer spriteRenderer;
+	private Animator animator;
 
 	private int nbInputTypes = System.Enum.GetNames(typeof(eInputType)).Length;
 	private string[] inputNameArray;
 
 	private Vector3 moveDirection = Vector3.zero;
 	private bool isRunningHold = false;
+	private bool isMoving = true;
 	private float[] axisValue = new float[2];
 
 	private bool isHidden = false;
@@ -46,6 +49,8 @@ public class MainController : MonoBehaviour
 	{
 		this.currentCharacter = this.GetComponent<MainCharacter>();
 		this.characterController = this.GetComponent<CharacterController>();
+		this.spriteRenderer = this.GetComponent<SpriteRenderer>();
+		this.animator = this.GetComponent<Animator>();
 
 		this.inputNameArray = new string[nbInputTypes];
 
@@ -89,6 +94,7 @@ public class MainController : MonoBehaviour
 		this.UpdateCurrentActiveObject();
 		this.CheckInput();
 		this.MoveController();
+		this.SetAnimationStates();
 	}
 
 	void CreateInputNameArray()
@@ -225,7 +231,7 @@ public class MainController : MonoBehaviour
 	void SetAnimationStates()
 	{
 		this.animator.SetBool("IsRunning", this.isMoving);
-		this.animator.SetBool("IsSprinting", this.isSprintingHold);
+		this.animator.SetBool("IsSprinting", this.isRunningHold);
 		this.animator.SetBool("IsFront", this.isFront);
 	}
 
