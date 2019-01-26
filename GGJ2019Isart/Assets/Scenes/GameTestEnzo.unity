@@ -327,6 +327,37 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1364413545}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &425381927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425381925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ListenerNumber: 0
+--- !u!114 &425381928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425381925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9468c5f457ace64f8d4df6d642b107f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LoadEvent: 1
+  UnloadEvent: 0
+  Banks:
+  - Master Bank
+  CollisionTag: 
+  PreloadSamples: 0
 --- !u!114 &425381930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -511,7 +542,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundWeightDecrementation: 0.1
   timeBeforeDecrementation: 0.1
-  activate: 0
   soundIntensity: 1
 --- !u!54 &434641831
 Rigidbody:
@@ -844,7 +874,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1200b03e52f601f4ab5ede4788b2c4b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bIsUseable: 1
 --- !u!136 &541639524
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -950,7 +979,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 700930d17537da447943849f93470c19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bIsUseable: 1
   soundEmitter: {fileID: 434641830}
   pointWon: 200
 --- !u!136 &582629380
@@ -1156,7 +1184,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1200b03e52f601f4ab5ede4788b2c4b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bIsUseable: 1
 --- !u!136 &714945216
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1487,7 +1514,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1200b03e52f601f4ab5ede4788b2c4b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bIsUseable: 1
 --- !u!136 &1019908647
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1593,7 +1619,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1200b03e52f601f4ab5ede4788b2c4b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bIsUseable: 1
 --- !u!136 &1029375535
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1796,7 +1821,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1200b03e52f601f4ab5ede4788b2c4b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bIsUseable: 1
 --- !u!136 &1030465181
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2009,7 +2033,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1200b03e52f601f4ab5ede4788b2c4b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bIsUseable: 1
 --- !u!136 &1248537415
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2397,6 +2420,11 @@ PrefabInstance:
       propertyPath: orthographic
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6416589762120930575, guid: 53db48ce734218448bad21b151c30a06,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53db48ce734218448bad21b151c30a06, type: 3}
 --- !u!1001 &1528873751
@@ -2538,7 +2566,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1200b03e52f601f4ab5ede4788b2c4b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bIsUseable: 1
 --- !u!136 &1533868276
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3146,7 +3173,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1200b03e52f601f4ab5ede4788b2c4b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bIsUseable: 1
 --- !u!136 &1983965106
 CapsuleCollider:
   m_ObjectHideFlags: 0
