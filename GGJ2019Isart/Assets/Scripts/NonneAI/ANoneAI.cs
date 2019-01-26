@@ -18,21 +18,40 @@ public class ANoneAI : MonoBehaviour
     //gonna make the nonne choose if she change her target
     private float attractionForce;
 
-    //vision of the nonne
-    private SphereCollider detectionSphere;
+    //detection of the nonne
+    [SerializeField]
+    private ADetectionAI SoundDetection;
+    [SerializeField]
+    private ADetectionAI ViewDetection;
+
+    //chasing player
+    private bool bIsChasing = false;
+
 
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         directionPoint.transform.parent = null;
-        detectionSphere = GetComponent<SphereCollider>();
     }
 
     // Update is called once per frame
     protected virtual void FixedUpdate()
     {
-        FindANewPath();
+        if (bIsChasing == false)
+            FindANewPath();
+        else
+            KeepChasing();
+
+    }
+
+    protected virtual void KeepChasing()
+    {
+        if (destination.transform.position != directionPoint.transform.position)
+        {
+            agent.SetDestination(destination.transform.position);
+            directionPoint.transform.position = destination.transform.position;
+        }
     }
 
     protected virtual void FindANewPath()
@@ -67,17 +86,20 @@ public class ANoneAI : MonoBehaviour
 
     protected virtual void ResetDestination()
     {
+        bIsChasing = false;
         destination = null;
         previousDestination = null;
         attractionForce = 0;
+        ViewDetection.ResetCollider();
+        SoundDetection.ResetCollider();
     }
 
-    protected void OnTriggerEnter(Collider other)
+    public virtual void SoundTriggerEvent(GameObject other)
     {
-        if (other.gameObject.tag == "SoundEmission")
+        if (other.tag == "SoundEmission" && bIsChasing == false)
         {
-            float objectDistance = Vector3.Distance(transform.position, other.gameObject.transform.position);
-            float maxDistance = detectionSphere.radius + other.gameObject.GetComponent<SphereCollider>().radius;
+            float objectDistance = Vector3.Distance(transform.position, other.transform.position);
+            float maxDistance = SoundDetection.radius + other.GetComponent<SphereCollider>().radius;
             Debug.Log("objectDistance = " + objectDistance + " maxDistance = " + maxDistance + " result = " + objectDistance / maxDistance);
 
             ASoundEmitter tmp = other.gameObject.GetComponent<ASoundEmitter>();
@@ -85,6 +107,29 @@ public class ANoneAI : MonoBehaviour
             {
                 changeDestination(tmp, tmp.SoundWeight * (1 - (objectDistance / maxDistance)));
             }
+        }
+    }
+
+    public virtual void ViewTriggerEvent(GameObject other)
+    {
+        if (other.tag == "Player" && bIsChasing == false)
+        {
+            Debug.Log("kidssssss");
+            ResetDestination();
+            bIsChasing = true;
+            destination = other;
+            attractionForce = 1;
+            directionPoint.transform.position = other.transform.position;
+            agent.SetDestination(destination.transform.position);
+        }
+    }
+
+    public virtual void ViewExitEvent(GameObject other)
+    {
+        if (other.tag == "Player" && other == destination)
+        {
+            Debug.Log("noooooo he left");
+            ResetDestination();
         }
     }
 
