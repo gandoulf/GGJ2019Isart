@@ -6,25 +6,12 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class SoundEmitter : ASoundEmitter
 {
-    //TO DELETE
-    public bool activate = false;
-
     private SphereCollider sphereCollider;
     private float maxRange;
 
     [SerializeField]
     [Range(0.0f, 1.0f)]
     private float soundIntensity;
-
-    //TO DELETE
-    private void Update()
-    {
-        if (activate)
-        {
-            EmitSound();
-            activate = false;
-        }
-    }
 
     protected override void Start()
     {

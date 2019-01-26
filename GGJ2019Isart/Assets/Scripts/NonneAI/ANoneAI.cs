@@ -131,7 +131,7 @@ public abstract class ANoneAI : MonoBehaviour
             float objectDistance = Vector3.Distance(transform.position, other.transform.position);
             float maxDistance = SoundDetection.radius + other.GetComponent<SphereCollider>().radius;
             ASoundEmitter tmp = other.gameObject.GetComponent<ASoundEmitter>();
-            Debug.Log("objectDistance = " + objectDistance + " maxDistance = " + maxDistance + " result = " + tmp.SoundWeight * (1 - (objectDistance / maxDistance)));
+            Debug.Log("tmp.SoundWeight = " + tmp.SoundWeight + " objectDistance = " + objectDistance + " maxDistance = " + maxDistance + " result = " + tmp.SoundWeight * (1 - (objectDistance / maxDistance)));
 
            if (tmp != null && tmp.SoundWeight * (1 - (objectDistance / maxDistance)) > attractionForce)
             {
