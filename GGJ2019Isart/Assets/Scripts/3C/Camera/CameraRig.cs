@@ -19,10 +19,12 @@ public class CameraRig : MonoBehaviour
 	private Vector3 moveVelocity;                 // Reference velocity for the smooth damping of the position.
 	private Vector3 desiredPosition;              // The position the camera is moving towards.
 
+	private List<GameObject> wallOccludedList;
 
 	private void Awake()
 	{
 		this.currentCamera = this.GetComponentInChildren<Camera>();
+		this.wallOccludedList = new List<GameObject>();
 	}
 
 	private void Start()
@@ -149,11 +151,17 @@ public class CameraRig : MonoBehaviour
 		{
 			RaycastHit hit;
 			
-			if (Physics.Raycast(this.transform.position, this.transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity))
+			if (Physics.Raycast(this.currentCamera.transform.position, this.targets[i].transform.position - this.currentCamera.transform.position, out hit, Mathf.Infinity))
 			{
 				if (hit.collider.CompareTag("Wall") == true)
 				{
 					hit.collider.gameObject.GetComponent<Wall>().ChangeAlpha(true);
+					this.wallOccludedList.Add(hit.collider.gameObject);
+				}
+				else if (this.wallOccludedList.Count > 0)
+				{
+					this.wallOccludedList[0].GetComponent<Wall>().ChangeAlpha(false);
+					this.wallOccludedList.Clear();
 				}
 			}
 		}

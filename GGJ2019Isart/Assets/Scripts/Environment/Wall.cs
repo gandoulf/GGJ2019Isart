@@ -20,7 +20,7 @@ public class Wall : MonoBehaviour
 
 	private IEnumerator UpdateAlpha(bool hiding)
 	{
-		float targetAlpha = hiding ? 0.2f : 1.0f;
+		float targetAlpha = hiding ? 0.8f : 1.0f;
 		float currentAlpha = this.mat.GetFloat("_Alpha");
 
 		if (hiding)

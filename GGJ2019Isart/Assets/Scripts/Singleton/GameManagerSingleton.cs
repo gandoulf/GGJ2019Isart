@@ -13,6 +13,14 @@ public class GameManagerSingleton : Singleton<GameManagerSingleton>
 
 	public Dictionary<int, int> indexSlotDictionnary;
 	public GameObject playerPrefab;
+	public int score;
+	public int rage;
+	public float timer;
+	public List<int> scoreNeeded;
+	public List<int> rageLevel;
+	public int currentRageLevel;
+
+	private HUD hud;
 
     [SerializeField]
     private Material outline;
@@ -29,16 +37,31 @@ public class GameManagerSingleton : Singleton<GameManagerSingleton>
 		DontDestroyOnLoad(this.gameObject);
 	}
 
+	private void Update()
+	{
+		if (this.hud != null)
+		{
+			this.timer -= Time.deltaTime;
+			if (this.timer <= 0.0f)
+			{
+				this.timer = 0.0f;
+				SceneManager.LoadScene("Menu");
+			}
+			else
+			{
+				this.hud.UpdateTimer(this.timer);
+			}
+		}
+	}
+
 	public void SpawnPlayer()
 	{
 		int nbPlayer = this.indexSlotDictionnary.Count + 1;
-
-		Debug.Log("NB PLAYERS: " + (nbPlayer -1));
+		
 		for (int i = 1; i < nbPlayer; i++)
 		{
 			MainController controller = Instantiate(playerPrefab).GetComponent<MainController>();
-
-			Debug.Log("SPAWN PLAYER: " + i + " FROM SLOT: " + this.indexSlotDictionnary[i]);
+			
 			controller.Init(i, this.indexSlotDictionnary[i]);
             /*Material tmp = new Material(outline);
             tmp.SetColor("_EmissionColor", playerColors[i]);
@@ -46,8 +69,29 @@ public class GameManagerSingleton : Singleton<GameManagerSingleton>
 		}
 	}
 
+	public void IncRage(int gain)
+	{
+		this.rage += gain;
+		this.hud.UpdateRage(this.rage);
+		if ((this.currentRageLevel == 0 && this.rage >= this.rageLevel[0]) ||
+			(this.currentRageLevel == 1 && this.rage >= this.rageLevel[1]) ||
+			(this.currentRageLevel == 2 && this.rage >= this.rageLevel[2]))
+		{
+			this.currentRageLevel++;
+			MusicManager.Instance.UpdateLayerMusic(this.currentRageLevel);
+		}
+	}
+
+	public void IncScore(int gain)
+	{
+		this.score += gain;
+		this.hud.UpdateScore(this.score);
+	}
+
 	private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
 	{
 		this.SpawnPlayer();
+		this.hud = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUD>();
+		this.hud.Init(this.scoreNeeded[this.scoreNeeded.Count - 1]);
 	}
 }
