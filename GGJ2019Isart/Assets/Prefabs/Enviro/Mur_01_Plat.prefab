@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1739008463203702551}
   - component: {fileID: 6953948940549401156}
   - component: {fileID: 5339841035146609754}
-  - component: {fileID: 6016954410129875094}
+  - component: {fileID: 1086195847528548832}
   m_Layer: 0
   m_Name: Mur_01_Plat
   m_TagString: Untagged
@@ -78,8 +78,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &6016954410129875094
-BoxCollider:
+--- !u!64 &1086195847528548832
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -88,6 +88,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0.5, y: 0.3, z: 0}
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300006, guid: 653c173b956bd19498d74245e8dc64c0, type: 3}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1792875725630095410}
   - component: {fileID: 5002100241227870338}
   - component: {fileID: 6749282895448442207}
-  - component: {fileID: 2456734868233436153}
+  - component: {fileID: 7260051459418107267}
   m_Layer: 0
   m_Name: Mur_03_Angle
   m_TagString: Untagged
@@ -78,8 +78,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &2456734868233436153
-BoxCollider:
+--- !u!64 &7260051459418107267
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -88,6 +88,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0.5, y: 0.27, z: 0}
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300016, guid: 653c173b956bd19498d74245e8dc64c0, type: 3}
