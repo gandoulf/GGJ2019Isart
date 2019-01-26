@@ -29,6 +29,7 @@ public class MainCharacter : MonoBehaviour
 			{
 				this.freePlayerUsableGO.SetActive(false);
 			}
+			Debug.Log("Is captured? " + this.isCaptured.ToString());
 		}
 	}
 

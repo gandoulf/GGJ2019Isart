@@ -52,7 +52,7 @@ public class MainController : MonoBehaviour
     [SerializeField]
     private float intervalBetweenStep = 0.5f;
 
-
+	static int nbPlayer = 0;
     public void Awake()
 	{
 		this.currentCharacter = this.GetComponent<MainCharacter>();
@@ -64,6 +64,7 @@ public class MainController : MonoBehaviour
 
 		Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Player"));
         StartCoroutine(WalkingStep());
+		this.Init(++nbPlayer, nbPlayer - 1);
     }
 
     public void Init(int joyId, int slotId)
@@ -72,6 +73,10 @@ public class MainController : MonoBehaviour
 		this.playerSlotId = slotId;
 
 		this.CreateInputNameArray();
+		if (slotId != 0)
+		{
+			this.currentCharacter.IsCaptured = true;
+		}
 	}
 
     protected IEnumerator WalkingStep()
@@ -116,7 +121,8 @@ public class MainController : MonoBehaviour
     {
 		if (this.currentCharacter.IsCaptured == true)
 			return;
-
+		if (playerSlotId != 0)
+			return;
 		this.UpdateCurrentActiveObject();
 		this.CheckInput();
 		this.MoveController();
@@ -143,8 +149,6 @@ public class MainController : MonoBehaviour
 				if (this.currentUsableObject != null)
 				{
 					this.UnSelectUsableObject();
-					//Stop showing button hover object
-					this.currentUsableObject.OnObjectFocused(false);
 				}
 				this.currentUsableObject = usableObject;
 				//Show button hover object
@@ -161,7 +165,8 @@ public class MainController : MonoBehaviour
 		this.axisValue[1] = 0.0f;
 		this.isFront = true;
 		this.isMoving = false;
-
+		if (this.inputNameArray[(int)eInputType.X] == "")
+			return;
 		//Axis
 		if (Mathf.Abs(Input.GetAxis(this.inputNameArray[(int)eInputType.X])) > 0.2 ||
 			Mathf.Abs(Input.GetAxis(this.inputNameArray[(int)eInputType.X])) < -0.2)
@@ -251,7 +256,7 @@ public class MainController : MonoBehaviour
 		pos.y = Mathf.Clamp01(pos.y);
 		this.transform.position = Camera.main.ViewportToWorldPoint(pos);
 		pos = this.transform.position;
-		pos.y = 1.0f;
+		pos.y = 0.0f;
 		this.transform.position = pos;
 	}
 	

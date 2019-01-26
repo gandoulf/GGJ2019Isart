@@ -60,17 +60,17 @@ public abstract class AUsable : MonoBehaviour
 
     protected virtual void setMaterial()
     {
-        if (players.Count == 0)
-            renderer.material = baseMat;
-        else
-        {
-            int closestPlayer = 0;
-            for (int i = 0; i < players.Count; i++)
-            {
-                if (Vector3.Distance(players[i].transform.position, gameObject.transform.position) < Vector3.Distance(players[closestPlayer].transform.position, gameObject.transform.position))
-                    closestPlayer = i;
-            }
-            renderer.material = Singleton<GameManagerSingleton>.Instance.PlayerOutlineColor[players[closestPlayer].GetComponent<MainController>().PlayerSlotId];
-        }
-    }
+		if (players.Count == 0)
+			renderer.material = baseMat;
+		else
+		{
+			int closestPlayer = 0;
+			for (int i = 0; i < players.Count; i++)
+			{
+				if (Vector3.Distance(players[i].transform.position, gameObject.transform.position) < Vector3.Distance(players[closestPlayer].transform.position, gameObject.transform.position))
+					closestPlayer = i;
+			}
+			renderer.material = Singleton<GameManagerSingleton>.Instance.PlayerOutlineColor[players[closestPlayer].GetComponent<MainController>().PlayerSlotId];
+		}
+	}
 }
