@@ -23,13 +23,11 @@ public class GameManagerSingleton : Singleton<GameManagerSingleton>
 	public void SpawnPlayer()
 	{
 		int nbPlayer = this.indexSlotDictionnary.Count + 1;
-
-		Debug.Log("NB PLAYERS: " + (nbPlayer -1));
+		
 		for (int i = 1; i < nbPlayer; i++)
 		{
 			MainController controller = Instantiate(playerPrefab).GetComponent<MainController>();
-
-			Debug.Log("SPAWN PLAYER: " + i + " FROM SLOT: " + this.indexSlotDictionnary[i]);
+			
 			controller.Init(i, this.indexSlotDictionnary[i]);
 		}
 	}
