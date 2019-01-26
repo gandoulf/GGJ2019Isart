@@ -34,7 +34,6 @@ public class MainController : MonoBehaviour
 	private float[] axisValue = new float[2];
 
 	private bool isHidden = false;
-
 	private List<AUsable> usableOjectList = new List<AUsable>();
 	private AUsable currentUsableObject = null;
 
@@ -45,7 +44,14 @@ public class MainController : MonoBehaviour
     [SerializeField]
     float throwingPower = 10.0f;
 
-	public void Awake()
+    //soundSystem
+    [SerializeField]
+    private SoundEmitter slowWalk;
+    [SerializeField]
+    private SoundEmitter FastWalk;
+
+
+    public void Awake()
 	{
 		this.currentCharacter = this.GetComponent<MainCharacter>();
 		this.characterController = this.GetComponent<CharacterController>();
@@ -64,6 +70,18 @@ public class MainController : MonoBehaviour
 
 		this.CreateInputNameArray();
 	}
+
+    IEnumerator WalkingStep()
+    {
+        while(true)
+        {
+            if (isRunningHold)
+            {
+                FastWalk.EmitSound();
+            }
+            if (IsMovin
+        }
+    }
 
 	public void OnObjectNearEnter(AUsable usableScript)
 	{
