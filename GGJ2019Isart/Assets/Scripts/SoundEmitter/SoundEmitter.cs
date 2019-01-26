@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
 
 [RequireComponent(typeof(SphereCollider))]
 [RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(StudioEventEmitter))]
 public class SoundEmitter : ASoundEmitter
 {
     private SphereCollider sphereCollider;
@@ -13,6 +15,8 @@ public class SoundEmitter : ASoundEmitter
     [Range(0.0f, 1.0f)]
     private float soundIntensity;
 
+    protected StudioEventEmitter soundEmitter;
+
     protected override void Start()
     {
         base.Start();
@@ -20,7 +24,17 @@ public class SoundEmitter : ASoundEmitter
         sphereCollider.enabled = false;
         sphereCollider.isTrigger = true;
         GetComponent<Rigidbody>().isKinematic = true;
+        soundEmitter = GetComponent<StudioEventEmitter>();
         maxRange = sphereCollider.radius;
+    }
+
+    protected override void OnSoundOver()
+    {
+        base.OnSoundOver();
+        if (soundEmitter)
+        {
+            soundEmitter.Stop();
+        }
     }
 
     public void EmitSound()
@@ -28,6 +42,10 @@ public class SoundEmitter : ASoundEmitter
         sphereCollider.enabled = true;
         sphereCollider.radius = maxRange;
         ComputeSoundWeight(soundIntensity);
+        if (soundEmitter)
+        {
+            soundEmitter.Play();
+        }
         Invoke("StopEmitting", 0.1f);
     }
 
