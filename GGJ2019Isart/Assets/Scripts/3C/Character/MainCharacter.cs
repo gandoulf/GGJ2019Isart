@@ -20,12 +20,4 @@ public class MainCharacter : MonoBehaviour
 	{
 		return this.speedMultiplier;
 	}
-
-	//private void OnObjectNearEnter(Activable objScript)
-	//{
-	//}
-
-	//private void OnObjectNearExit(Activable objScript)
-	//{
-	//}
 }
