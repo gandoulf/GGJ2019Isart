@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class ANoneAI : MonoBehaviour
+public abstract class ANoneAI : MonoBehaviour
 {
     [SerializeField]
     private Room room;
