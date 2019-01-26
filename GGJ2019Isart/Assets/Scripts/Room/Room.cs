@@ -9,6 +9,7 @@ public class Room : MonoBehaviour
     public APathNode GetClosestPathNode(GameObject reference)
     {
         APathNode closestNode = null;
+
         foreach (var node in pathNode)
         {
             if (closestNode == null)

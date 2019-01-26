@@ -125,8 +125,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2421efcf9662cc947b8919930170fc44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
-  speedMultiplier: 1.5
+  speed: 15
+  speedMultiplier: 2
 --- !u!114 &474565115128605639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,5 +139,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c16ff8f07082dff44a1950d263f3e24f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerJoyId: -1
-  playerSlotId: -1
