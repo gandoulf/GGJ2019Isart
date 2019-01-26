@@ -25,9 +25,11 @@ MonoBehaviour:
   - {fileID: 114936864790257348}
   - {fileID: 114239646458762128}
   - {fileID: 114655218464430420}
+  - {fileID: 114276879257005276}
+  - {fileID: 114264513274127166}
   MasterBankRef: {fileID: 114980916876310892}
   StringsBankRef: {fileID: 114325140175265466}
-  stringsBankWriteTime: 636841319783555337
+  stringsBankWriteTime: 636841444846105964
   cacheVersion: 2
 --- !u!114 &114011558285934396
 MonoBehaviour:
@@ -373,6 +375,50 @@ MonoBehaviour:
   Min: 0
   Max: 2
   Default: 0
+--- !u!114 &114264513274127166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Action/Action_Book
+  guid: a732ebdd63a7e14baa235a41c248994c
+  Banks:
+  - {fileID: 114980916876310892}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+--- !u!114 &114276879257005276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Amb
+  guid: 252a95919f70c74192054051236d151c
+  Banks:
+  - {fileID: 114980916876310892}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
 --- !u!114 &114281668506894042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -408,11 +454,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: Assets\Audio\Desktop\Master Bank.strings.bank
-  lastModified: 636841319783555337
+  lastModified: 636841444846105964
   LoadResult: 0
   FileSizes:
   - Name: 
-    Value: 1098
+    Value: 1188
   Exists: 1
 --- !u!114 &114328468207728046
 MonoBehaviour:
@@ -434,10 +480,26 @@ MonoBehaviour:
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 114421794041010582}
-  - {fileID: 114977204613925498}
+  - {fileID: 114339841093385096}
+  - {fileID: 114398660143051064}
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &114339841093385096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Texture
+  Min: 0
+  Max: 3
+  Default: 0
 --- !u!114 &114343890559704946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -462,6 +524,22 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
 --- !u!114 &114364737791883302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Run
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114398660143051064
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -608,6 +686,22 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114500352769604010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: State
+  Min: 0
+  Max: 3
+  Default: 0
 --- !u!114 &114519892114422826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -700,7 +794,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 114754573749577270}
+  - {fileID: 114500352769604010}
   MinDistance: 0
   MaxDistance: 0
 --- !u!114 &114639740052964906
@@ -1116,11 +1210,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: D:\UnityProject\GGJ2019Isart\GGJ2019Isart\Assets\Audio\Desktop\Master Bank.bank
-  lastModified: 636841319783545340
+  lastModified: 636841444846095972
   LoadResult: 0
   FileSizes:
   - Name: 
-    Value: 5012512
+    Value: 6028704
   Exists: 1
 --- !u!114 &114982756274035944
 MonoBehaviour:
