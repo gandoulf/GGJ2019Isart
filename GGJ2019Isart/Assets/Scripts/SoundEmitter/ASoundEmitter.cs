@@ -37,6 +37,11 @@ public abstract class ASoundEmitter : MonoBehaviour
         currentCoroutine = StartCoroutine(DecrementSoundWeight());
     }
 
+    protected virtual void OnSoundOver()
+    {
+
+    }
+
     private IEnumerator DecrementSoundWeight()
     {
         while (soundWeight != 0.0f)
@@ -47,6 +52,7 @@ public abstract class ASoundEmitter : MonoBehaviour
                 soundWeight = 0.0f;
         }
         currentCoroutine = null;
+        OnSoundOver();
         yield return null;
     }
 }
