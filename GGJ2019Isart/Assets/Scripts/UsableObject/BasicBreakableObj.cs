@@ -22,6 +22,6 @@ public class BasicBreakableObj : AUsable
 
     protected virtual void GivePoint()
     {
-
+ 
     }
 }

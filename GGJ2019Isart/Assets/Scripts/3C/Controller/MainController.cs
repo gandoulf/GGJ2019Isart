@@ -18,18 +18,16 @@ public class MainController : MonoBehaviour
 
 	private int playerJoyId = -1;
 	private int playerSlotId = -1;
+    public int PlayerSlotId { get { return playerSlotId; } }
 
 	private MainCharacter currentCharacter;
 	private CharacterController characterController;
-	private Animator animator;
-	private SpriteRenderer spriteRenderer;
 
 	private int nbInputTypes = System.Enum.GetNames(typeof(eInputType)).Length;
 	private string[] inputNameArray;
 
 	private Vector3 moveDirection = Vector3.zero;
-	private bool isMoving = false;
-	private bool isSprintingHold = false;
+	private bool isRunningHold = false;
 	private float[] axisValue = new float[2];
 
 	private bool isHidden = false;
@@ -38,13 +36,16 @@ public class MainController : MonoBehaviour
 	private AUsable currentUsableObject = null;
 
 	private bool isFront = true;
+    public bool IsThrowingObjAvailable = false;
+    [SerializeField]
+    GameObject throwingPosition;
+    [SerializeField]
+    float throwingPower = 10.0f;
 
 	public void Awake()
 	{
 		this.currentCharacter = this.GetComponent<MainCharacter>();
 		this.characterController = this.GetComponent<CharacterController>();
-		this.animator = this.GetComponent<Animator>();
-		this.spriteRenderer = this.GetComponent<SpriteRenderer>();
 
 		this.inputNameArray = new string[nbInputTypes];
 
@@ -69,7 +70,7 @@ public class MainController : MonoBehaviour
 
 	public void OnObjectNearExit(AUsable usableScript)
 	{
-		if (this.usableOjectList.Contains(usableScript) == false)
+		if (this.usableOjectList.Contains(usableScript) == true)
 		{
 			if (this.currentUsableObject == usableScript)
 			{
@@ -88,7 +89,6 @@ public class MainController : MonoBehaviour
 		this.UpdateCurrentActiveObject();
 		this.CheckInput();
 		this.MoveController();
-		this.SetAnimationStates();
 	}
 
 	void CreateInputNameArray()
@@ -124,8 +124,7 @@ public class MainController : MonoBehaviour
 	//Urgh
 	void CheckInput()
 	{
-		this.isSprintingHold = false;
-		this.isMoving = false;
+		this.isRunningHold = false;
 		this.axisValue[0] = 0.0f;
 		this.axisValue[1] = 0.0f;
 		this.isFront = true;
@@ -155,11 +154,26 @@ public class MainController : MonoBehaviour
 				this.isFront = false;
 			}
 		}
-
-		if (this.isMoving  == true && Mathf.Abs(Input.GetAxis(this.inputNameArray[(int)eInputType.RUN])) > 0.2)
+		if (Mathf.Abs(Input.GetAxis(this.inputNameArray[(int)eInputType.RUN])) > 0.2)
 		{
-			this.isSprintingHold = true;
+			this.isRunningHold = true;
 		}
+
+        if(IsThrowingObjAvailable && Input.GetButtonUp(this.inputNameArray[(int)eInputType.ACTION]) == true)
+        {
+            IsThrowingObjAvailable = false;
+            Debug.Log("toto");
+            Vector3 dir;
+            var horiz = this.axisValue[0];
+            var vert = this.axisValue[1];
+            Vector3 tmp = new Vector3(horiz, 0.05f, vert);
+            /*if (tmp.sqrMagnitude < 0.2)
+                tmp = new Vector3(Random.Range(-0.05f, 0.05f), 0.2f, Random.Range(-0.05f, 0.05f));*/
+            dir = tmp.normalized;
+            GameObject go = Instantiate(Singleton<GameManagerSingleton>.Instance.RandomThroablePrefab);
+            go.transform.position = throwingPosition.transform.position;
+            go.GetComponent<Rigidbody>().velocity = dir * throwingPower;
+        }
 
 		if (this.currentUsableObject != null)
 		{
@@ -196,7 +210,7 @@ public class MainController : MonoBehaviour
 	{
 		this.moveDirection = new Vector3(this.axisValue[0], 0.0f, this.axisValue[1]);
 		this.moveDirection = this.transform.TransformDirection(this.moveDirection);
-		this.moveDirection = this.moveDirection * (this.currentCharacter.GetSpeed() * (this.isSprintingHold ? this.currentCharacter.GetSpeedMultiplier() : 1.0f));
+		this.moveDirection = this.moveDirection * (this.currentCharacter.GetSpeed() * (this.isRunningHold ? this.currentCharacter.GetSpeedMultiplier() : 1.0f));
 		this.characterController.Move(moveDirection * Time.deltaTime);
 
 		Vector3 pos = Camera.main.WorldToViewportPoint(this.transform.position);
@@ -204,7 +218,7 @@ public class MainController : MonoBehaviour
 		pos.y = Mathf.Clamp01(pos.y);
 		this.transform.position = Camera.main.ViewportToWorldPoint(pos);
 		pos = this.transform.position;
-		pos.y = 0.0f;
+		pos.y = 1.0f;
 		this.transform.position = pos;
 	}
 	

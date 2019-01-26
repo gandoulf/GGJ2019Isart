@@ -18,10 +18,20 @@ public class GameManagerSingleton : Singleton<GameManagerSingleton>
 	public float timer;
 	public List<int> scoreNeeded;
 	public List<int> rageLevel;
+	public int currentRageLevel;
 
 	private HUD hud;
 
-	private void Start()
+    [SerializeField]
+    private Material outline;
+    [ColorUsageAttribute(true, true, 0f, 8f, 0.125f, 3f)]
+    public Color[] playerColors;
+    public List<Material> PlayerOutlineColor = new List<Material>();
+
+    public GameObject[] randomThroablePrefab;
+    public GameObject RandomThroablePrefab { get { return (randomThroablePrefab[Random.Range(0, randomThroablePrefab.Length)]); } }
+
+    private void Start()
 	{
 		SceneManager.sceneLoaded += this.OnSceneLoaded;
 		DontDestroyOnLoad(this.gameObject);
@@ -47,12 +57,18 @@ public class GameManagerSingleton : Singleton<GameManagerSingleton>
 	public void SpawnPlayer()
 	{
 		int nbPlayer = this.indexSlotDictionnary.Count + 1;
+		GameObject[] spawners = GameObject.FindGameObjectsWithTag("Spawn");
 		
 		for (int i = 1; i < nbPlayer; i++)
 		{
 			MainController controller = Instantiate(playerPrefab).GetComponent<MainController>();
-			
+
+			controller.transform.position = spawners[i - 1].transform.position;
+			controller.transform.rotation = spawners[i - 1].transform.rotation;
 			controller.Init(i, this.indexSlotDictionnary[i]);
+            /*Material tmp = new Material(outline);
+            tmp.SetColor("_EmissionColor", playerColors[i]);
+            PlayerOutlineColor.Add(tmp);*/
 		}
 	}
 
@@ -60,6 +76,13 @@ public class GameManagerSingleton : Singleton<GameManagerSingleton>
 	{
 		this.rage += gain;
 		this.hud.UpdateRage(this.rage);
+		if ((this.currentRageLevel == 0 && this.rage >= this.rageLevel[0]) ||
+			(this.currentRageLevel == 1 && this.rage >= this.rageLevel[1]) ||
+			(this.currentRageLevel == 2 && this.rage >= this.rageLevel[2]))
+		{
+			this.currentRageLevel++;
+			MusicManager.Instance.UpdateLayerMusic(this.currentRageLevel);
+		}
 	}
 
 	public void IncScore(int gain)
@@ -72,6 +95,6 @@ public class GameManagerSingleton : Singleton<GameManagerSingleton>
 	{
 		this.SpawnPlayer();
 		this.hud = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUD>();
-		this.hud.maxScore = this.scoreNeeded[this.scoreNeeded.Count - 1];
+		this.hud.Init(this.scoreNeeded[this.scoreNeeded.Count - 1]);
 	}
 }
