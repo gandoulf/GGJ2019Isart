@@ -14,7 +14,16 @@ public class GameManagerSingleton : Singleton<GameManagerSingleton>
 	public Dictionary<int, int> indexSlotDictionnary;
 	public GameObject playerPrefab;
 
-	private void Start()
+    [SerializeField]
+    private Material outline;
+    [ColorUsageAttribute(true, true, 0f, 8f, 0.125f, 3f)]
+    public Color[] playerColors;
+    public List<Material> PlayerOutlineColor = new List<Material>();
+
+    public GameObject[] randomThroablePrefab;
+    public GameObject RandomThroablePrefab { get { return (randomThroablePrefab[Random.Range(0, randomThroablePrefab.Length)]); } }
+
+    private void Start()
 	{
 		SceneManager.sceneLoaded += this.OnSceneLoaded;
 		DontDestroyOnLoad(this.gameObject);
@@ -31,6 +40,9 @@ public class GameManagerSingleton : Singleton<GameManagerSingleton>
 
 			Debug.Log("SPAWN PLAYER: " + i + " FROM SLOT: " + this.indexSlotDictionnary[i]);
 			controller.Init(i, this.indexSlotDictionnary[i]);
+            /*Material tmp = new Material(outline);
+            tmp.SetColor("_EmissionColor", playerColors[i]);
+            PlayerOutlineColor.Add(tmp);*/
 		}
 	}
 

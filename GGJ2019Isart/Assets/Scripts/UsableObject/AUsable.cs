@@ -10,8 +10,18 @@ public abstract class AUsable : MonoBehaviour
         SPECIAL
     }
 
-    [SerializeField] protected bool bIsUseable;
+    [SerializeField] protected bool bIsUseable = true;
     public virtual bool IsUseable { get { return bIsUseable; } }
+
+    private Material baseMat;
+    private Renderer renderer;
+    private List<GameObject> players = new List<GameObject>();
+
+    protected virtual void Start()
+    {
+        renderer = GetComponent<Renderer>();
+        baseMat = renderer.material;
+    }
 
     public virtual void OnButtonPressed(ButtonType type, GameObject player)
     {
@@ -30,17 +40,37 @@ public abstract class AUsable : MonoBehaviour
 
 	public virtual void OnTriggerEnter(Collider collider)
 	{
-		if (collider.CompareTag("Player") == true)
+		if (collider.CompareTag("Player") == true && IsUseable == true)
 		{
 			collider.gameObject.GetComponent<MainController>().OnObjectNearEnter(this);
-		}
-	}
+            players.Add(collider.gameObject);
+            setMaterial();
+        }
+    }
 
 	public virtual void OnTriggerExit(Collider collider)
 	{
 		if (collider.CompareTag("Player") == true)
 		{
 			collider.gameObject.GetComponent<MainController>().OnObjectNearExit(this);
-		}
-	}
+            players.Remove(collider.gameObject);
+            setMaterial();
+        }
+    }
+
+    protected virtual void setMaterial()
+    {
+        if (players.Count == 0)
+            renderer.material = baseMat;
+        else
+        {
+            int closestPlayer = 0;
+            for (int i = 0; i < players.Count; i++)
+            {
+                if (Vector3.Distance(players[i].transform.position, gameObject.transform.position) < Vector3.Distance(players[closestPlayer].transform.position, gameObject.transform.position))
+                    closestPlayer = i;
+            }
+            renderer.material = Singleton<GameManagerSingleton>.Instance.PlayerOutlineColor[players[closestPlayer].GetComponent<MainController>().PlayerSlotId];
+        }
+    }
 }

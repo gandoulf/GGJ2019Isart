@@ -18,6 +18,7 @@ public class MainController : MonoBehaviour
 
 	private int playerJoyId = -1;
 	private int playerSlotId = -1;
+    public int PlayerSlotId { get { return playerSlotId; } }
 
 	private MainCharacter currentCharacter;
 	private CharacterController characterController;
@@ -33,6 +34,12 @@ public class MainController : MonoBehaviour
 
 	private List<AUsable> usableOjectList = new List<AUsable>();
 	private AUsable currentUsableObject = null;
+
+    public bool IsThrowingObjAvailable = false;
+    [SerializeField]
+    GameObject throwingPosition;
+    [SerializeField]
+    float throwingPower = 10.0f;
 
 	public void Awake()
 	{
@@ -62,7 +69,7 @@ public class MainController : MonoBehaviour
 
 	public void OnObjectNearExit(AUsable usableScript)
 	{
-		if (this.usableOjectList.Contains(usableScript) == false)
+		if (this.usableOjectList.Contains(usableScript) == true)
 		{
 			if (this.currentUsableObject == usableScript)
 			{
@@ -135,6 +142,22 @@ public class MainController : MonoBehaviour
 		{
 			this.isRunningHold = true;
 		}
+
+        if(IsThrowingObjAvailable && Input.GetButtonUp(this.inputNameArray[(int)eInputType.ACTION]) == true)
+        {
+            IsThrowingObjAvailable = false;
+            Debug.Log("toto");
+            Vector3 dir;
+            var horiz = this.axisValue[0];
+            var vert = this.axisValue[1];
+            Vector3 tmp = new Vector3(horiz, 0.05f, vert);
+            /*if (tmp.sqrMagnitude < 0.2)
+                tmp = new Vector3(Random.Range(-0.05f, 0.05f), 0.2f, Random.Range(-0.05f, 0.05f));*/
+            dir = tmp.normalized;
+            GameObject go = Instantiate(Singleton<GameManagerSingleton>.Instance.RandomThroablePrefab);
+            go.transform.position = throwingPosition.transform.position;
+            go.GetComponent<Rigidbody>().velocity = dir * throwingPower;
+        }
 
 		if (this.currentUsableObject != null)
 		{
