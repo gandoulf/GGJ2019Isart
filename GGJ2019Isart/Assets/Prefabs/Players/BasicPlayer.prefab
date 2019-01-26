@@ -85,8 +85,8 @@ MonoBehaviour:
   IsThrowingObjAvailable: 0
   throwingPosition: {fileID: 966715224155008520}
   throwingPower: 10
-  slowWalk: {fileID: 0}
-  FastWalk: {fileID: 0}
+  slowWalk: {fileID: 433685090208486226}
+  FastWalk: {fileID: 3523796109028156796}
 --- !u!95 &6873625752948164279
 Animator:
   serializedVersion: 3
