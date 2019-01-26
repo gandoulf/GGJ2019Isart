@@ -179,7 +179,7 @@ public class MainController : MonoBehaviour
 		pos.y = Mathf.Clamp01(pos.y);
 		this.transform.position = Camera.main.ViewportToWorldPoint(pos);
 		pos = this.transform.position;
-		pos.y = 1.0f;
+		pos.y = 0.0f;
 		this.transform.position = pos;
 	}
 
