@@ -26,9 +26,16 @@ public class MainController : MonoBehaviour
 	private string[] inputNameArray;
 
 	private Vector3 moveDirection = Vector3.zero;
-	private bool isActionHold = false;
 	private bool isRunningHold = false;
 	private float[] axisValue = new float[2];
+
+	private bool canDoAction = false;
+	private bool canMash = false;
+	private bool canHide = false;
+	private bool isHidden = false;
+
+	private List<GameObject> activableOjectList = new List<GameObject>();
+	private GameObject currentActiveObject = null;
 
 	public void Awake()
 	{
@@ -54,8 +61,12 @@ public class MainController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		CheckInput();
-		MoveController();
+		if (this.currentCharacter.IsCaptured == true)
+			return;
+
+		this.UpdateCurrentActiveObject();
+		this.CheckInput();
+		this.MoveController();
 	}
 
 	void CreateInputNameArray()
@@ -66,6 +77,25 @@ public class MainController : MonoBehaviour
 		this.inputNameArray[(int)eInputType.START] = "Joy" + this.playerJoyId + "Start";
 		this.inputNameArray[(int)eInputType.ACTION] = "Joy" + this.playerJoyId + "Action";
 		this.inputNameArray[(int)eInputType.SPECIAL] = "Joy" + this.playerJoyId + "Special";
+	}
+
+	void UpdateCurrentActiveObject()
+	{
+		foreach (GameObject activableObject in this.activableOjectList)
+		{
+			if (this.currentActiveObject == null ||
+				Vector3.Distance(activableObject.transform.position, this.transform.position) < Vector3.Distance(this.currentActiveObject.transform.position, this.transform.position))
+			{
+				if (this.currentActiveObject != null)
+				{
+					//Stop showing button hover object
+					//this.currentActiveObject->Bla
+				}
+				this.currentActiveObject = activableObject;
+				//Show button hover object
+				//this.currentActiveObject->Bli
+			}
+		}
 	}
 
 	//Urgh
@@ -94,25 +124,27 @@ public class MainController : MonoBehaviour
 		//Button
 		if (Input.GetButtonDown(this.inputNameArray[(int)eInputType.ACTION]) == true)
 		{
-			this.isActionHold = true;
+			//this.currentActiveObject->TriggerObject(true);
 		}
 		else if (Input.GetButtonUp(this.inputNameArray[(int)eInputType.ACTION]) == true)
 		{
-			if (this.isActionHold == true)
+			//this.currentActiveObject->TriggerObject(false);
+		}
+		else if ((this.canHide == true || this.isHidden == true) && Input.GetButtonDown(this.inputNameArray[(int)eInputType.SPECIAL]) == true)
+		{
+			if (this.isHidden == true)
 			{
-
+				// Exit hiding place
+				//this.currentActiveObject->bla
 			}
 			else
 			{
-
+				// Hide
+				//this.currentActiveObject->bli;
 			}
-			this.isActionHold = false;
+
 		}
-		else if (Input.GetButton(this.inputNameArray[(int)eInputType.SPECIAL]) == true)
-		{
-			// Hide
-		}
-		else if (this.playerSlotId == 0 && Input.GetButton(this.inputNameArray[(int)eInputType.START]) == true)
+		else if (this.playerSlotId == 0 && Input.GetButtonDown(this.inputNameArray[(int)eInputType.START]) == true)
 		{
 			// Start menu
 		}
