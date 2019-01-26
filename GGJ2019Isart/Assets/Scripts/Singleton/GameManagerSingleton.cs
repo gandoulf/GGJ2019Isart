@@ -18,6 +18,7 @@ public class GameManagerSingleton : Singleton<GameManagerSingleton>
 	public float timer;
 	public List<int> scoreNeeded;
 	public List<int> rageLevel;
+	public int currentRageLevel;
 
 	private HUD hud;
 
@@ -60,6 +61,13 @@ public class GameManagerSingleton : Singleton<GameManagerSingleton>
 	{
 		this.rage += gain;
 		this.hud.UpdateRage(this.rage);
+		if ((this.currentRageLevel == 0 && this.rage >= this.rageLevel[0]) ||
+			(this.currentRageLevel == 1 && this.rage >= this.rageLevel[1]) ||
+			(this.currentRageLevel == 2 && this.rage >= this.rageLevel[2]))
+		{
+			this.currentRageLevel++;
+			MusicManager.Instance.UpdateLayerMusic(this.currentRageLevel);
+		}
 	}
 
 	public void IncScore(int gain)
@@ -72,6 +80,6 @@ public class GameManagerSingleton : Singleton<GameManagerSingleton>
 	{
 		this.SpawnPlayer();
 		this.hud = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUD>();
-		this.hud.maxScore = this.scoreNeeded[this.scoreNeeded.Count - 1];
+		this.hud.Init(this.scoreNeeded[this.scoreNeeded.Count - 1]);
 	}
 }
