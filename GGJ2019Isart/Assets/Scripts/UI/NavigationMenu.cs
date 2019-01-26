@@ -23,13 +23,13 @@ public class NavigationMenu : MonoBehaviour
 	private void Update()
 	{
 		GameObject selectedObj = EventSystem.current.currentSelectedGameObject;
+		Button selectedAsButton = null;
 
 		if (selectedObj == null)
 		{
 			return;
 		}
-		Button selectedAsButton = selectedObj.GetComponent<Button>();
-
+		selectedAsButton = selectedObj.GetComponent<Button>();
 		if (selectedAsButton != null && selectedAsButton != this.previousButton)
 		{
 			this.HighlightButton(selectedAsButton);
@@ -39,12 +39,9 @@ public class NavigationMenu : MonoBehaviour
 			this.UnHighlightButton(previousButton);
 		}
 		previousButton = selectedAsButton;
-		if (Input.GetButtonDown("Cancel"))
+		if (Input.GetButtonDown("Joy1Special") && this.lobby.activeSelf && GameManagerSingleton.Instance.indexSlotDictionnary.Count == 0)
 		{
-			if (this.lobby.activeSelf)
-			{
-				this.BackToMainMenu();
-			}
+			this.BackToMainMenu();
 		}
 	}
 
