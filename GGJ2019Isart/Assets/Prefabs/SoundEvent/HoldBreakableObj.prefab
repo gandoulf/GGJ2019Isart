@@ -61,6 +61,7 @@ GameObject:
   - component: {fileID: 1201793214113303178}
   - component: {fileID: 2076700127291738612}
   - component: {fileID: 3274102243255360281}
+  - component: {fileID: 1991943228082789070}
   m_Layer: 0
   m_Name: soundEmitter
   m_TagString: SoundEmission
@@ -126,3 +127,26 @@ MonoBehaviour:
   soundWeightDecrementation: 0.2
   timeBeforeDecrementation: 2.5
   soundIntensity: 1
+--- !u!114 &1991943228082789070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7267274077247699827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  CollisionTag: 
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: -1
+  OverrideMaxDistance: -1
