@@ -160,6 +160,7 @@ public class MainController : MonoBehaviour
 		this.axisValue[0] = 0.0f;
 		this.axisValue[1] = 0.0f;
 		this.isFront = true;
+		this.isMoving = false;
 
 		//Axis
 		if (Mathf.Abs(Input.GetAxis(this.inputNameArray[(int)eInputType.X])) > 0.2 ||
@@ -186,7 +187,7 @@ public class MainController : MonoBehaviour
 				this.isFront = false;
 			}
 		}
-		if (Mathf.Abs(Input.GetAxis(this.inputNameArray[(int)eInputType.RUN])) > 0.2)
+		if (this.isMoving == true && Mathf.Abs(Input.GetAxis(this.inputNameArray[(int)eInputType.RUN])) > 0.2)
 		{
 			this.isRunningHold = true;
 		}
