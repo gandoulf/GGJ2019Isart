@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1910081472158470601
+--- !u!1 &6765178458687371652
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,10 +8,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1910081472158470602}
-  - component: {fileID: 1910081472158470613}
-  - component: {fileID: 1910081472158470612}
-  - component: {fileID: 1910081472158470603}
+  - component: {fileID: 2075102932411702955}
+  - component: {fileID: 3314740070575046037}
+  - component: {fileID: 5812189857725097817}
+  - component: {fileID: 3525670179063950724}
   m_Layer: 0
   m_Name: soundEmitter
   m_TagString: SoundEmission
@@ -19,40 +19,40 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1910081472158470602
+--- !u!4 &2075102932411702955
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1910081472158470601}
+  m_GameObject: {fileID: 6765178458687371652}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1910081472446103857}
+  m_Father: {fileID: 7586086474200121337}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &1910081472158470613
+--- !u!135 &3314740070575046037
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1910081472158470601}
+  m_GameObject: {fileID: 6765178458687371652}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &1910081472158470612
+--- !u!54 &5812189857725097817
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1910081472158470601}
+  m_GameObject: {fileID: 6765178458687371652}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -62,22 +62,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1910081472158470603
+--- !u!114 &3525670179063950724
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1910081472158470601}
+  m_GameObject: {fileID: 6765178458687371652}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: beb343e49f00ebb499e7e147bdd0d5b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundWeightDecrementation: 0.5
-  timeBeforeDecrementation: 0.5
-  soundIntensity: 1
---- !u!1 &1910081472446103863
+  soundWeightDecrementation: 0.1
+  timeBeforeDecrementation: 0.2
+  soundIntensity: 0.2
+--- !u!1 &9148456790992235208
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -85,44 +85,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1910081472446103857}
-  - component: {fileID: 1910081472446103856}
+  - component: {fileID: 7586086474200121337}
+  - component: {fileID: 5365438897775894956}
   m_Layer: 0
-  m_Name: MashBreakable
+  m_Name: Hideout
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1910081472446103857
+--- !u!4 &7586086474200121337
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1910081472446103863}
+  m_GameObject: {fileID: 9148456790992235208}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 9.895737, y: 3.5185966, z: 73.78067}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1910081472158470602}
+  - {fileID: 2075102932411702955}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1910081472446103856
+--- !u!114 &5365438897775894956
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1910081472446103863}
+  m_GameObject: {fileID: 9148456790992235208}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce2fa636250e86b43ab20982f6582f03, type: 3}
+  m_Script: {fileID: 11500000, guid: f867103071749f140b5416b0fb2703cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundEmitter:
-  - {fileID: 1910081472158470603}
-  numberOfMashNeeded: 15
-  pointWon: 80
-  pointDivider: 2
+  soundEmitter: {fileID: 3525670179063950724}
