@@ -124,5 +124,13 @@ public class MainController : MonoBehaviour
 		this.moveDirection = this.transform.TransformDirection(this.moveDirection);
 		this.moveDirection = this.moveDirection * (this.currentCharacter.GetSpeed() * (this.isRunningHold ? this.currentCharacter.GetSpeedMultiplier() : 1.0f));
 		this.characterController.Move(moveDirection * Time.deltaTime);
+
+		Vector3 pos = Camera.main.WorldToViewportPoint(this.transform.position);
+		pos.x = Mathf.Clamp01(pos.x);
+		pos.y = Mathf.Clamp01(pos.y);
+		this.transform.position = Camera.main.ViewportToWorldPoint(pos);
+		pos = this.transform.position;
+		pos.y = 1.0f;
+		this.transform.position = pos;
 	}
 }
