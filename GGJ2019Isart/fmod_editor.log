@@ -35,3 +35,30 @@
 [LOG] Manager::readBank                        : fileversion = 99, compatVersion = 99 (oldest = 44, newest = 99)
 [LOG] Manager::readBank                        : fileversion = 99, compatVersion = 99 (oldest = 44, newest = 99)
 [LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 3
+[WRN] OutputWASAPI::mixerThread                : Starvation detected in WASAPI output buffer!
+[WRN] OutputWASAPI::mixerThread                : Starvation detected in WASAPI output buffer!
+[WRN] OutputWASAPI::mixerThread                : Starvation detected in WASAPI output buffer!
+[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
+[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
+[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
+[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
+[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
+[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
+[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
+[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
+[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
+[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
+[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
+[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
+[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
+[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
+[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
+[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
+[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
+[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
+[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
+[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
+[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
+[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
+[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
+[ERR] OutputWASAPI::mixerThread                : GetCurrentPadding returned 0x88890004.  Device was unplugged!
