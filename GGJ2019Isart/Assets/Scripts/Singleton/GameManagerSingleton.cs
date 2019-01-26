@@ -48,11 +48,14 @@ public class GameManagerSingleton : Singleton<GameManagerSingleton>
 	public void SpawnPlayer()
 	{
 		int nbPlayer = this.indexSlotDictionnary.Count + 1;
+		GameObject[] spawners = GameObject.FindGameObjectsWithTag("Spawn");
 		
 		for (int i = 1; i < nbPlayer; i++)
 		{
 			MainController controller = Instantiate(playerPrefab).GetComponent<MainController>();
-			
+
+			controller.transform.position = spawners[i - 1].transform.position;
+			controller.transform.rotation = spawners[i - 1].transform.rotation;
 			controller.Init(i, this.indexSlotDictionnary[i]);
 		}
 	}
