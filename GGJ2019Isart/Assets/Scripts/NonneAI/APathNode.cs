@@ -10,6 +10,7 @@ public abstract class APathNode : MonoBehaviour
     private APathNode[] pathNodes;
     [SerializeField]
     private ASoundEmitter soundEmitter;
+    public ASoundEmitter SoundEmitter { get { return soundEmitter; } }
 
     private SphereCollider sphereCollider;
 
@@ -39,7 +40,7 @@ public abstract class APathNode : MonoBehaviour
         {
             float objectDistance = Vector3.Distance(transform.position, other.gameObject.transform.position);
             float maxDistance = sphereCollider.radius + other.gameObject.GetComponent<SphereCollider>().radius;
-            Debug.Log("objectDistance = " + objectDistance + " maxDistance = " + maxDistance + " result = " + objectDistance / maxDistance);
+            //Debug.Log("objectDistance = " + objectDistance + " maxDistance = " + maxDistance + " result = " + objectDistance / maxDistance);
 
             soundEmitter.ComputeSoundWeight(other.GetComponent<ASoundEmitter>().SoundWeight * (1 - (objectDistance / maxDistance)));
         }

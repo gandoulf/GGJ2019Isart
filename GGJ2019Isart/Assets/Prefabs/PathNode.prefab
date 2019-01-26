@@ -45,7 +45,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundWeightDecrementation: 0.5
   timeBeforeDecrementation: 5
-  soundWeight: 0
 --- !u!1 &6554765447685208009
 GameObject:
   m_ObjectHideFlags: 0
