@@ -70,7 +70,7 @@ public class GameManagerSingleton : Singleton<GameManagerSingleton>
 	private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
 	{
 		this.SpawnPlayer();
-		this.hud = GameObject.Find("HUD").GetComponent<HUD>();
-		this.hud.maxScore = this.scoreNeeded[this.scoreNeeded.Count - 1];
+		this.hud = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUD>();
+		//this.hud.maxScore = this.scoreNeeded[this.scoreNeeded.Count - 1];
 	}
 }
