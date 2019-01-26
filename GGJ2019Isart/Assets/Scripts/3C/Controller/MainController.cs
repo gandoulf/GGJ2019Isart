@@ -16,15 +16,6 @@ public class MainController : MonoBehaviour
 		SPECIAL
 	}
 
-	private enum eDirection
-	{
-		NONE = 0,
-		FRONT,
-		BACK,
-		RIGHT,
-		LEFT
-	}
-
 	private int playerJoyId = -1;
 	private int playerSlotId = -1;
 
@@ -46,7 +37,7 @@ public class MainController : MonoBehaviour
 	private List<AUsable> usableOjectList = new List<AUsable>();
 	private AUsable currentUsableObject = null;
 
-	private eDirection direction = eDirection.NONE;
+	private bool isFront = true;
 
 	public void Awake()
 	{
@@ -137,7 +128,7 @@ public class MainController : MonoBehaviour
 		this.isMoving = false;
 		this.axisValue[0] = 0.0f;
 		this.axisValue[1] = 0.0f;
-		this.direction = eDirection.NONE;
+		this.isFront = true;
 
 		//Axis
 		if (Mathf.Abs(Input.GetAxis(this.inputNameArray[(int)eInputType.X])) > 0.2 ||
@@ -147,12 +138,10 @@ public class MainController : MonoBehaviour
 			this.isMoving = true;
 			if (this.axisValue[0] > 0)
 			{
-				this.direction = eDirection.RIGHT;
 				this.spriteRenderer.flipX = true;
 			}
 			else
 			{
-				this.direction = eDirection.LEFT;
 				this.spriteRenderer.flipX = false;
 			}
 		}
@@ -163,11 +152,7 @@ public class MainController : MonoBehaviour
 			this.isMoving = true;
 			if (this.axisValue[1] > 0)
 			{
-				this.direction = eDirection.FRONT;
-			}
-			else
-			{
-				this.direction = eDirection.BACK;
+				this.isFront = false;
 			}
 		}
 
@@ -227,7 +212,7 @@ public class MainController : MonoBehaviour
 	{
 		this.animator.SetBool("IsRunning", this.isMoving);
 		this.animator.SetBool("IsSprinting", this.isSprintingHold);
-		this.animator.SetInteger("Direction", (int)this.direction);
+		this.animator.SetBool("IsFront", this.isFront);
 	}
 
 	void UnSelectUsableObject()
