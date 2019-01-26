@@ -78,6 +78,7 @@ namespace FMODUnity
                     }
                 }
 
+
             If you want to remove the FormerlySerializedAs you can do so after you've loaded and saved every scene in your project.
         */
 
