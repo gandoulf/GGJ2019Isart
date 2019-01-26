@@ -49,6 +49,8 @@ public class MainController : MonoBehaviour
     private SoundEmitter slowWalk;
     [SerializeField]
     private SoundEmitter FastWalk;
+    [SerializeField]
+    private float intervalBetweenStep = 0.5f;
 
 
     public void Awake()
@@ -61,9 +63,10 @@ public class MainController : MonoBehaviour
 		this.inputNameArray = new string[nbInputTypes];
 
 		Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Player"));
-	}
+        StartCoroutine(WalkingStep());
+    }
 
-	public void Init(int joyId, int slotId)
+    public void Init(int joyId, int slotId)
 	{
 		this.playerJoyId = joyId;
 		this.playerSlotId = slotId;
@@ -71,15 +74,20 @@ public class MainController : MonoBehaviour
 		this.CreateInputNameArray();
 	}
 
-    IEnumerator WalkingStep()
+    protected IEnumerator WalkingStep()
     {
-        while(true)
+        yield return new WaitForSeconds(1.0f);
+        while (true)
         {
             if (isRunningHold)
             {
                 FastWalk.EmitSound();
             }
-            if (IsMovin
+            else if (isMoving)
+            {
+                slowWalk.EmitSound();
+            }
+            yield return new WaitForSeconds(0.5f);
         }
     }
 
