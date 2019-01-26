@@ -87,7 +87,7 @@ public class MainController : MonoBehaviour
             {
                 slowWalk.EmitSound();
             }
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(intervalBetweenStep / (isRunningHold ? this.currentCharacter.GetSpeedMultiplier() : 1.0f));
         }
     }
 
