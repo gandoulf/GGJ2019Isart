@@ -117,8 +117,12 @@ public class MainController : MonoBehaviour
 		if (this.currentCharacter.IsCaptured == true)
 			return;
 
-		this.UpdateCurrentActiveObject();
 		this.CheckInput();
+
+		if (this.currentCharacter.isHidden == true)
+			return;
+
+		this.UpdateCurrentActiveObject();
 		this.MoveController();
 		this.SetAnimationStates();
 	}

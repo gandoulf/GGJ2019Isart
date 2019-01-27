@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1862999290}
   - component: {fileID: 1862999291}
   - component: {fileID: 1862999289}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ViewDetection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -163,7 +163,7 @@ GameObject:
   - component: {fileID: 2071013915630105931}
   - component: {fileID: 1744507457625394438}
   - component: {fileID: 5063663470532863287}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -330,7 +330,7 @@ GameObject:
   - component: {fileID: 2516467822674932300}
   - component: {fileID: 9001162198364513573}
   - component: {fileID: 5322314754751525619}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SoundDetection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -461,7 +461,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7716427270188652107}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: NonneDirection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -495,7 +495,7 @@ GameObject:
   - component: {fileID: 7716427271009657466}
   - component: {fileID: 4378282697989660643}
   - component: {fileID: 2359443059946466166}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: NonneAI
   m_TagString: Nonne
   m_Icon: {fileID: 0}
@@ -638,7 +638,7 @@ GameObject:
   - component: {fileID: 5836289746596875313}
   - component: {fileID: 6859562162304193663}
   - component: {fileID: 3297805688223624473}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PlayerCatcher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
