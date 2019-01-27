@@ -232,38 +232,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: MashBreakable
       objectReference: {fileID: 0}
-    - target: {fileID: 7359564041650641127, guid: f286d22a6e74af540bf686d431c93a71,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5442995119733488377, guid: f286d22a6e74af540bf686d431c93a71,
-        type: 3}
-      propertyPath: renderer
-      value: 
-      objectReference: {fileID: 8723770376663942088}
-    - target: {fileID: 5442995119733488377, guid: f286d22a6e74af540bf686d431c93a71,
-        type: 3}
-      propertyPath: spriteAction
-      value: 
-      objectReference: {fileID: 21300000, guid: 8e0ce24362a0af74ba727a4e142e409f,
-        type: 3}
-    - target: {fileID: 5442995119733488377, guid: f286d22a6e74af540bf686d431c93a71,
-        type: 3}
-      propertyPath: spriteSpecial
-      value: 
-      objectReference: {fileID: 21300000, guid: e9db47d3e0af9bd4da50d207b8c60e2c,
-        type: 3}
-    - target: {fileID: 5442995119733488377, guid: f286d22a6e74af540bf686d431c93a71,
-        type: 3}
-      propertyPath: numberOfMashNeeded
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5442995119733488377, guid: f286d22a6e74af540bf686d431c93a71,
-        type: 3}
-      propertyPath: endSound
-      value: 
-      objectReference: {fileID: 5376980154872410664}
     - target: {fileID: 2508630438875118984, guid: f286d22a6e74af540bf686d431c93a71,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -318,6 +286,43 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7359564041650641127, guid: f286d22a6e74af540bf686d431c93a71,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5442995119733488377, guid: f286d22a6e74af540bf686d431c93a71,
+        type: 3}
+      propertyPath: renderer
+      value: 
+      objectReference: {fileID: 8723770376663942088}
+    - target: {fileID: 5442995119733488377, guid: f286d22a6e74af540bf686d431c93a71,
+        type: 3}
+      propertyPath: spriteAction
+      value: 
+      objectReference: {fileID: 21300000, guid: 8e0ce24362a0af74ba727a4e142e409f,
+        type: 3}
+    - target: {fileID: 5442995119733488377, guid: f286d22a6e74af540bf686d431c93a71,
+        type: 3}
+      propertyPath: spriteSpecial
+      value: 
+      objectReference: {fileID: 21300000, guid: e9db47d3e0af9bd4da50d207b8c60e2c,
+        type: 3}
+    - target: {fileID: 5442995119733488377, guid: f286d22a6e74af540bf686d431c93a71,
+        type: 3}
+      propertyPath: numberOfMashNeeded
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5442995119733488377, guid: f286d22a6e74af540bf686d431c93a71,
+        type: 3}
+      propertyPath: endSound
+      value: 
+      objectReference: {fileID: 5376980154872410664}
+    - target: {fileID: 5442995119733488377, guid: f286d22a6e74af540bf686d431c93a71,
+        type: 3}
+      propertyPath: pointWon
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3286919874896460584, guid: f286d22a6e74af540bf686d431c93a71,
         type: 3}
