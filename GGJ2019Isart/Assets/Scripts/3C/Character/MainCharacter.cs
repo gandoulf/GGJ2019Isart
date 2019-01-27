@@ -11,6 +11,8 @@ public class MainCharacter : MonoBehaviour
 	[SerializeField]
 	private GameObject freePlayerUsableGO;
 
+	public bool isHidden { get; set; } = false;
+
 	private bool isCaptured = false;
 	public bool IsCaptured
 	{
@@ -40,5 +42,21 @@ public class MainCharacter : MonoBehaviour
 	public float GetSpeedMultiplier()
 	{
 		return this.speedMultiplier;
+	}
+
+	public void HideCharacter(HideOutObj HideOutScript, bool hide)
+	{
+		if (hide == true)
+		{
+			this.GetComponent<Renderer>().enabled = false;
+			Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Nun"));
+			this.isHidden = true;
+		}
+		else
+		{
+			this.GetComponent<Renderer>().enabled = true;
+			Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Nun"), false);
+			this.isHidden = false;
+		}
 	}
 }
