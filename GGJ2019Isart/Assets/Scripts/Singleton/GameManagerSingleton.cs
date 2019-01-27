@@ -21,8 +21,9 @@ public class GameManagerSingleton : Singleton<GameManagerSingleton>
 	public int currentRageLevel;
 
 	private HUD hud;
+	private float currentTimer;
 
-    [SerializeField]
+	[SerializeField]
     private Material outline;
     [ColorUsageAttribute(true, true, 0f, 8f, 0.125f, 3f)]
     public Color[] playerColors;
@@ -41,17 +42,35 @@ public class GameManagerSingleton : Singleton<GameManagerSingleton>
 	{
 		if (this.hud != null)
 		{
-			this.timer -= Time.deltaTime;
-			if (this.timer <= 0.0f)
+			this.currentTimer -= Time.deltaTime;
+			if (this.currentTimer <= 0.0f)
 			{
-				this.timer = 0.0f;
-				SceneManager.LoadScene("Menu");
+				this.currentTimer = 0.0f;
+				this.Lose();
 			}
 			else
 			{
-				this.hud.UpdateTimer(this.timer);
+				this.hud.UpdateTimer(this.currentTimer);
 			}
 		}
+	}
+
+	private void Lose()
+	{
+		GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+
+		for (int i = 0; i < players.Length; i++)
+		{
+			Destroy(players[i]);
+		}
+		Destroy(Camera.main.transform.parent.gameObject);
+		this.score = 0;
+		this.rage = 0;
+		this.currentRageLevel = 0;
+		this.indexSlotDictionnary.Clear();
+		this.hud = null;
+		this.currentTimer = this.timer;
+		SceneManager.LoadScene("Menu");
 	}
 
 	public void SpawnPlayer()
@@ -93,8 +112,12 @@ public class GameManagerSingleton : Singleton<GameManagerSingleton>
 
 	private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
 	{
-		this.SpawnPlayer();
-		this.hud = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUD>();
-		this.hud.Init(this.scoreNeeded[this.scoreNeeded.Count - 1]);
+		if (scene.name.Contains("Game") == true)
+		{
+			this.SpawnPlayer();
+			this.currentTimer = this.timer;
+			this.hud = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUD>();
+			this.hud.Init(this.scoreNeeded[this.scoreNeeded.Count - 1]);
+		}
 	}
 }

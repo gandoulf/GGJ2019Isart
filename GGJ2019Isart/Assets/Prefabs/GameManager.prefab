@@ -46,3 +46,22 @@ MonoBehaviour:
   pathNode: []
   playerPrefab: {fileID: 688065721993593544, guid: 86f32d522877df04fa3232cb9228a6af,
     type: 3}
+  score: 0
+  rage: 0
+  timer: 600
+  scoreNeeded: 64000000c80000002c01000090010000
+  rageLevel: 640000002c01000090010000
+  currentRageLevel: 0
+  outline: {fileID: 2100000, guid: 6aba9e95c8dac4b4d98a5696217c6361, type: 2}
+  playerColors:
+  - {r: 2, g: 0, b: 0, a: 0}
+  - {r: 0, g: 1.2705883, b: 4, a: 0}
+  - {r: 0.1254902, g: 1, b: 0, a: 0}
+  - {r: 1, g: 0, b: 0.83322906, a: 0}
+  PlayerOutlineColor:
+  - {fileID: 2100000, guid: 1603f8523aef539448912095dd1a6949, type: 2}
+  - {fileID: 2100000, guid: a6266ca821e3b644f842aac9cb97bd0d, type: 2}
+  - {fileID: 2100000, guid: 7b4b6ae4534b2574fb5dea7eaed1916e, type: 2}
+  - {fileID: 2100000, guid: 68146d9c1ee1053439a4bb0514d9d6a6, type: 2}
+  randomThroablePrefab:
+  - {fileID: 1590319696351506982, guid: 51155e076c4152649ae1321f95288174, type: 3}
