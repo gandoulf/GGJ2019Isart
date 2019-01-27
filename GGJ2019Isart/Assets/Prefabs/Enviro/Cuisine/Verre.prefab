@@ -177,6 +177,11 @@ PrefabInstance:
       propertyPath: renderer
       value: 
       objectReference: {fileID: 337924039237087776}
+    - target: {fileID: 3951455269459223455, guid: e225db6239176164cb1a77afc4708e2a,
+        type: 3}
+      propertyPath: pointWon
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e225db6239176164cb1a77afc4708e2a, type: 3}
 --- !u!1 &797005701738235507 stripped
