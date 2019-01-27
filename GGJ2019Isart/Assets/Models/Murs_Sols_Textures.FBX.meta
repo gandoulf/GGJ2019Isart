@@ -1,0 +1,162 @@
+fileFormatVersion: 2
+guid: 54dae2ec3533584418e34ce1a149925f
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Box001
+    100002: Dalle_Bois
+    100004: Dalle_Lino
+    100006: Dalle_Moquette
+    100008: Dalle_Pierre
+    100010: Mur_01_Angle
+    100012: Mur_01_Plat
+    100014: Mur_02_Angle
+    100016: Mur_02_Plat
+    100018: Mur_03_Angle
+    100020: Mur_03_Plat
+    100022: Mur_04_Plat_Porte
+    100024: //RootNode
+    400000: Box001
+    400002: Dalle_Bois
+    400004: Dalle_Lino
+    400006: Dalle_Moquette
+    400008: Dalle_Pierre
+    400010: Mur_01_Angle
+    400012: Mur_01_Plat
+    400014: Mur_02_Angle
+    400016: Mur_02_Plat
+    400018: Mur_03_Angle
+    400020: Mur_03_Plat
+    400022: Mur_04_Plat_Porte
+    400024: //RootNode
+    2100000: 03 - Default
+    2100002: 02 - Default
+    2100004: 01 - Default
+    2100006: 07 - Default
+    2100008: 08 - Default
+    2100010: 09 - Default
+    2100012: 13 - Default
+    2100014: 15 - Default
+    2100016: 14 - Default
+    2300000: Box001
+    2300002: Dalle_Bois
+    2300004: Dalle_Lino
+    2300006: Dalle_Moquette
+    2300008: Dalle_Pierre
+    2300010: Mur_01_Angle
+    2300012: Mur_01_Plat
+    2300014: Mur_02_Angle
+    2300016: Mur_02_Plat
+    2300018: Mur_03_Angle
+    2300020: Mur_03_Plat
+    2300022: Mur_04_Plat_Porte
+    3300000: Box001
+    3300002: Dalle_Bois
+    3300004: Dalle_Lino
+    3300006: Dalle_Moquette
+    3300008: Dalle_Pierre
+    3300010: Mur_01_Angle
+    3300012: Mur_01_Plat
+    3300014: Mur_02_Angle
+    3300016: Mur_02_Plat
+    3300018: Mur_03_Angle
+    3300020: Mur_03_Plat
+    3300022: Mur_04_Plat_Porte
+    4300000: Dalle_Pierre
+    4300002: Dalle_Lino
+    4300004: Dalle_Bois
+    4300006: Mur_01_Plat
+    4300008: Mur_01_Angle
+    4300010: Mur_02_Plat
+    4300012: Mur_02_Angle
+    4300014: Mur_03_Plat
+    4300016: Mur_03_Angle
+    4300018: Dalle_Moquette
+    4300020: Mur_04_Plat_Porte
+    4300022: Box001
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
