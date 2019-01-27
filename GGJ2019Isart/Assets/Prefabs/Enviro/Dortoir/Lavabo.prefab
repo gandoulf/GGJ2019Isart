@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 995887616551406626}
   - component: {fileID: 5617285299109930011}
   - component: {fileID: 6513243532999382990}
+  - component: {fileID: 7831871355992373391}
   m_Layer: 0
   m_Name: Lavabo
   m_TagString: Untagged
@@ -87,6 +88,19 @@ BoxCollider:
   m_GameObject: {fileID: 590780413727122823}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.73, y: 0.78, z: 1.52}
+  m_Center: {x: -0.26, y: 0.38, z: 0.61}
+--- !u!65 &7831871355992373391
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 590780413727122823}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.73, y: 0.78, z: 1.52}

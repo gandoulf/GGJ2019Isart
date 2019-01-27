@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6853143950505900988}
   - component: {fileID: 5656989837425358929}
   - component: {fileID: 6336824878797309604}
+  - component: {fileID: 2994415731144043574}
   m_Layer: 0
   m_Name: ChaiseEnfant
   m_TagString: Untagged
@@ -87,6 +88,19 @@ BoxCollider:
   m_GameObject: {fileID: 7127654009723164605}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.82181436, y: 0.69092244, z: 1.9534584}
+  m_Center: {x: 0.39279124, y: 0.3341404, z: 0.9765765}
+--- !u!65 &2994415731144043574
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7127654009723164605}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.82181436, y: 0.69092244, z: 1.9534584}

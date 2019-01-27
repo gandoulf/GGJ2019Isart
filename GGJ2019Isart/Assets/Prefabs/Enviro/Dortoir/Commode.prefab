@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 995887616551406626}
   - component: {fileID: 5617285299109930011}
   - component: {fileID: 6513243532999382990}
+  - component: {fileID: 7111341753474058458}
   m_Layer: 0
   m_Name: Commode
   m_TagString: Untagged
@@ -87,6 +88,19 @@ BoxCollider:
   m_GameObject: {fileID: 590780413727122823}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.67, y: 0.52, z: 0.5}
+  m_Center: {x: 0.22, y: 0.27, z: -0.21}
+--- !u!65 &7111341753474058458
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 590780413727122823}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.67, y: 0.52, z: 0.5}

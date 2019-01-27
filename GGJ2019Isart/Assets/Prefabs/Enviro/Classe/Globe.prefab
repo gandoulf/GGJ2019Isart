@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4693399673329478627}
   - component: {fileID: 1516111775553500475}
   - component: {fileID: 1703835478419680907}
+  - component: {fileID: 661105088780912450}
   m_Layer: 0
   m_Name: Globe
   m_TagString: Untagged
@@ -87,6 +88,19 @@ BoxCollider:
   m_GameObject: {fileID: 1626666646690660170}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.28242874, y: 0.9073244, z: 0.26072985}
+  m_Center: {x: 0.000000230968, y: -0.00000005960465, z: 0.000000037252903}
+--- !u!65 &661105088780912450
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1626666646690660170}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.28242874, y: 0.9073244, z: 0.26072985}

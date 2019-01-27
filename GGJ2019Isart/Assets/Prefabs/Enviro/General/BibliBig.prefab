@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7964775993551532057}
   - component: {fileID: 2642216218459052009}
   - component: {fileID: 6009109691207534125}
+  - component: {fileID: 5518517761872233832}
   m_Layer: 0
   m_Name: BibliBig
   m_TagString: Untagged
@@ -87,6 +88,19 @@ BoxCollider:
   m_GameObject: {fileID: 479109527643347730}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0929043, y: 2.6475394, z: 7.435673}
+  m_Center: {x: 0.5067214, y: 1.0139971, z: 3.7178366}
+--- !u!65 &5518517761872233832
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 479109527643347730}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.0929043, y: 2.6475394, z: 7.435673}

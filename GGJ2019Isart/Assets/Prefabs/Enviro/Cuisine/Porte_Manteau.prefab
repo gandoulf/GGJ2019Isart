@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2140865241}
   - component: {fileID: 2140865240}
   - component: {fileID: 7084359947655000883}
+  - component: {fileID: 8894645942585124127}
   m_Layer: 0
   m_Name: Porte_Manteau
   m_TagString: Untagged
@@ -87,6 +88,19 @@ BoxCollider:
   m_GameObject: {fileID: 2140865238}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.53602445, y: 0.1310519, z: 0.11549979}
+  m_Center: {x: -0.08101257, y: -0.04326253, z: 0.050008573}
+--- !u!65 &8894645942585124127
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2140865238}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.53602445, y: 0.1310519, z: 0.11549979}
