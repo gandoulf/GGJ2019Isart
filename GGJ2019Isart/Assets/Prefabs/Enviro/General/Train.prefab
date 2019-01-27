@@ -177,6 +177,26 @@ PrefabInstance:
       propertyPath: renderer
       value: 
       objectReference: {fileID: 8723770376663942088}
+    - target: {fileID: 5442995119733488377, guid: f286d22a6e74af540bf686d431c93a71,
+        type: 3}
+      propertyPath: playSoundFirstTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3286919874896460584, guid: f286d22a6e74af540bf686d431c93a71,
+        type: 3}
+      propertyPath: Event
+      value: event:/Action/Action_TrainToy
+      objectReference: {fileID: 0}
+    - target: {fileID: 3286919874896460584, guid: f286d22a6e74af540bf686d431c93a71,
+        type: 3}
+      propertyPath: OverrideMinDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3286919874896460584, guid: f286d22a6e74af540bf686d431c93a71,
+        type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f286d22a6e74af540bf686d431c93a71, type: 3}
 --- !u!1 &7821228369765078135 stripped

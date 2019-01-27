@@ -23,6 +23,8 @@ public abstract class APathNode : MonoBehaviour
     {
         bool randomDirection = true;
         APathNode tmp = null;
+		int random = UnityEngine.Random.Range(0, pathNodes.Length);
+
         foreach (var node in pathNodes)
         {
             if (tmp == null)
@@ -38,9 +40,10 @@ public abstract class APathNode : MonoBehaviour
                 }
             }
         }
-        if (randomDirection)
-            return (pathNodes[UnityEngine.Random.Range(0, pathNodes.Length)].gameObject);
-
+		if (randomDirection && pathNodes[random] != null)
+		{
+			return (pathNodes[random].gameObject);
+		}
         APathNode returnNode = null;
         foreach (var node in pathNodes)
         {

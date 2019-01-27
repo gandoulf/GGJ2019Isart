@@ -99,6 +99,7 @@ public class Lobby : MonoBehaviour
 	{
 		int index = -1;
 
+		this.transform.parent.GetComponent<NavigationMenu>().click.Play();
 		switch (author)
 		{
 			case "Joy1Action":
@@ -148,6 +149,8 @@ public class Lobby : MonoBehaviour
 	private void Ready(int index)
 	{
 		GameObject slot = this.slotList[GameManagerSingleton.Instance.indexSlotDictionnary[index]];
+
+		this.transform.parent.GetComponent<NavigationMenu>().click.Play();
 		slot.GetComponent<Image>().color = Color.green;
 		if (index == 1)
 		{
@@ -191,6 +194,7 @@ public class Lobby : MonoBehaviour
 
 	private void LaunchGame()
 	{
+		this.transform.parent.GetComponent<NavigationMenu>().click.Play();
 		SceneManager.LoadScene(this.sceneToLaunch);
 	}
 }
