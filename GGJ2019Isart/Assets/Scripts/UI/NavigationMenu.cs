@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using FMODUnity;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -11,6 +12,8 @@ public class NavigationMenu : MonoBehaviour
 	[SerializeField] private GameObject defaultButton;
 	[SerializeField] private GameObject main;
 	[SerializeField] private GameObject lobby;
+	public StudioEventEmitter click;
+	[SerializeField] private StudioEventEmitter switchUI;
 
 	private void Start()
 	{
@@ -55,6 +58,7 @@ public class NavigationMenu : MonoBehaviour
 
 	private void HighlightButton(Button button)
 	{
+		this.switchUI.Play();
 		button.transform.localScale = new Vector3(this.scaleAmount, this.scaleAmount, this.scaleAmount);
 		button.Select();
 		button.OnSelect(null);
@@ -84,6 +88,7 @@ public class NavigationMenu : MonoBehaviour
 
 	public void OnStart()
 	{
+		this.click.Play();
 		this.main.SetActive(false);
 		this.lobby.SetActive(true);
 	}
