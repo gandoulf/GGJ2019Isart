@@ -6204,7 +6204,7 @@ Light:
   serializedVersion: 8
   m_Type: 1
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1.59
+  m_Intensity: 0.03
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -6331,7 +6331,7 @@ MonoBehaviour:
   useVolumetric: 1
   featuresFoldout: 1
   showAdditionalSettings: 0
-  displayLightIntensity: 1.59
+  displayLightIntensity: 0.03
   displayAreaLightEmissiveMesh: 0
   lightLayers: 1
   shadowNearPlane: 0.1
@@ -6372,6 +6372,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   renderer: {fileID: 0}
+  spriteButtons: []
+  isAction: 0
+  isSpecial: 0
+  actionType: 0
 --- !u!136 &541639524
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -6963,6 +6967,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   renderer: {fileID: 0}
+  spriteButtons: []
+  isAction: 0
+  isSpecial: 0
+  actionType: 0
   soundEmitter: {fileID: 434641830}
   pointWon: 200
 --- !u!136 &582629380
@@ -8591,6 +8599,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   renderer: {fileID: 0}
+  spriteButtons: []
+  isAction: 0
+  isSpecial: 0
+  actionType: 0
 --- !u!136 &714945216
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -12551,6 +12563,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   renderer: {fileID: 0}
+  spriteButtons: []
+  isAction: 0
+  isSpecial: 0
+  actionType: 0
 --- !u!136 &1019908647
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -12657,6 +12673,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   renderer: {fileID: 0}
+  spriteButtons: []
+  isAction: 0
+  isSpecial: 0
+  actionType: 0
 --- !u!136 &1029375535
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -12971,6 +12991,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   renderer: {fileID: 0}
+  spriteButtons: []
+  isAction: 0
+  isSpecial: 0
+  actionType: 0
 --- !u!136 &1030465181
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -15070,6 +15094,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   renderer: {fileID: 0}
+  spriteButtons: []
+  isAction: 0
+  isSpecial: 0
+  actionType: 0
 --- !u!136 &1248537415
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -18626,6 +18654,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   renderer: {fileID: 0}
+  spriteButtons: []
+  isAction: 0
+  isSpecial: 0
+  actionType: 0
 --- !u!136 &1533868276
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -23600,6 +23632,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   renderer: {fileID: 0}
+  spriteButtons: []
+  isAction: 0
+  isSpecial: 0
+  actionType: 0
 --- !u!136 &1983965106
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -25386,6 +25422,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_CullTransparentMesh
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5482490075584987894, guid: 265ed70b534eb9845a61d5ef2e00ffe6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1.199997
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8401271121247722063, guid: 265ed70b534eb9845a61d5ef2e00ffe6, type: 3}
