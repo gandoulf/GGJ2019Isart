@@ -95,18 +95,18 @@ TextureImporter:
       name: spritesheet_nun_sprint_face_0
       rect:
         serializedVersion: 2
-        x: 161
-        y: 204
-        width: 1183
-        height: 1404
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 362
+        y: 292
+        width: 1190
+        height: 1414
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 31fd0c81bd1631e44b47775fdde40ca7
+      spriteID: 574af4ec67c2c5a48833b504fcf28521
       vertices: []
       indices: 
       edges: []
@@ -115,18 +115,18 @@ TextureImporter:
       name: spritesheet_nun_sprint_face_1
       rect:
         serializedVersion: 2
-        x: 1389
-        y: 204
+        x: 1763
+        y: 289
         width: 1181
-        height: 1404
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 1413
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 132cb96c6496b8147a61f0066ea91f96
+      spriteID: e4bc3692a4de5de4597d22896ded8de8
       vertices: []
       indices: 
       edges: []
@@ -135,18 +135,18 @@ TextureImporter:
       name: spritesheet_nun_sprint_face_2
       rect:
         serializedVersion: 2
-        x: 2618
-        y: 117
-        width: 1102
-        height: 1424
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 3154
+        y: 204
+        width: 1106
+        height: 1433
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 019907632b07ca647956dffec78600e5
+      spriteID: bfb28adfea6b45d488780f90f8e8aa40
       vertices: []
       indices: 
       edges: []
@@ -155,18 +155,18 @@ TextureImporter:
       name: spritesheet_nun_sprint_face_3
       rect:
         serializedVersion: 2
-        x: 3763
-        y: 117
-        width: 1106
-        height: 1424
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 4465
+        y: 202
+        width: 1107
+        height: 1435
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fbc003b5d11a5734a984712a7bb75d01
+      spriteID: aa05350bc2b73b5408b1e1181e0fb4b4
       vertices: []
       indices: 
       edges: []
@@ -175,18 +175,18 @@ TextureImporter:
       name: spritesheet_nun_sprint_face_4
       rect:
         serializedVersion: 2
-        x: 4860
-        y: 271
-        width: 1289
-        height: 1337
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 5783
+        y: 361
+        width: 1293
+        height: 1342
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 193745bc3375c0743b28f7f1ec33b07e
+      spriteID: deb500d501a97044cb8b33e38838ec89
       vertices: []
       indices: 
       edges: []
@@ -195,18 +195,18 @@ TextureImporter:
       name: spritesheet_nun_sprint_face_5
       rect:
         serializedVersion: 2
-        x: 6067
-        y: 271
-        width: 1289
-        height: 1337
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 7282
+        y: 361
+        width: 1303
+        height: 1345
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ac639dba641bb945ac8f39236cb4eb8
+      spriteID: c3272f935a79ceb41ad045f2da6d9116
       vertices: []
       indices: 
       edges: []
@@ -215,18 +215,18 @@ TextureImporter:
       name: spritesheet_nun_sprint_face_6
       rect:
         serializedVersion: 2
-        x: 7404
-        y: 218
-        width: 1099
-        height: 1323
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 8832
+        y: 309
+        width: 1112
+        height: 1328
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: da24b86675065cc4a909d7ba6ce1c687
+      spriteID: fa66783ab20e04047b5a4e3809904370
       vertices: []
       indices: 
       edges: []
@@ -235,18 +235,18 @@ TextureImporter:
       name: spritesheet_nun_sprint_face_7
       rect:
         serializedVersion: 2
-        x: 8549
-        y: 218
-        width: 1101
-        height: 1323
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 10211
+        y: 309
+        width: 1106
+        height: 1328
+      alignment: 9
+      pivot: {x: 0.5, y: 0.75}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 550e560e13795b8448209d7ae4de3a59
+      spriteID: a2a4ccab10dba774ab5cbbe126f231b3
       vertices: []
       indices: 
       edges: []

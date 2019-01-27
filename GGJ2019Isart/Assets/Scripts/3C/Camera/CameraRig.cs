@@ -150,7 +150,7 @@ public class CameraRig : MonoBehaviour
 		for (int i = 0; i < nbPlayer; i++)
 		{
 			RaycastHit hit;
-			
+
 			if (Physics.Raycast(this.currentCamera.transform.position, this.targets[i].transform.position - this.currentCamera.transform.position, out hit, Mathf.Infinity))
 			{
 				if (hit.collider.CompareTag("Wall") == true)
