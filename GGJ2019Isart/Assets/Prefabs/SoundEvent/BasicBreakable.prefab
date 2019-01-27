@@ -152,6 +152,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 85253f6559b012f4a905e1e86d53cedd, type: 3}
   - {fileID: 0}
   - {fileID: 0}
+  isAction: 1
+  isSpecial: 0
+  actionType: 1
   soundEmitter: {fileID: 3951455269126156992}
   pointWon: 20
 --- !u!1 &8537974661270207811

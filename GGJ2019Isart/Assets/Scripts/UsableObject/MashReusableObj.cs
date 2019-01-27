@@ -7,9 +7,9 @@ public class MashReusableObj : MashBreakableObj
     [SerializeField]
     protected int pointDivider = 2;
 
-    public override void OnButtonPressed(ButtonType type, GameObject player)
+    public override void OnButtonPressed(GameObject player, MainController.eInputType buttonTypePressed)
     {
-        if (type == ButtonType.ACTION && bIsUseable == true)
+        if (buttonTypePressed == MainController.eInputType.ACTION && bIsUseable == true)
         {
             soundEmitter[Random.Range(0, soundEmitter.Length)].EmitSound();
             mashedTime++;
@@ -22,8 +22,8 @@ public class MashReusableObj : MashBreakableObj
     }
 
     protected override void GivePoint()
-    {
-        base.GivePoint();
-        pointWon /= pointDivider;
+	{
+		GameManagerSingleton.Instance.IncScore(this.pointWon);
+		pointWon /= pointDivider;
     }
 }

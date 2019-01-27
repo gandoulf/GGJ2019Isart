@@ -10,18 +10,19 @@ public class BasicBreakableObj : AUsable
     [SerializeField]
     private int pointWon;
 
-    public override void OnButtonPressed(ButtonType type, GameObject player)
+    public override void OnButtonPressed(GameObject player, MainController.eInputType buttonTypePressed)
     {
-        if (type == ButtonType.ACTION && bIsUseable == true)
+        if (buttonTypePressed == MainController.eInputType.ACTION && bIsUseable == true)
         {
             bIsUseable = false;
             soundEmitter.EmitSound();
             GivePoint();
-        }
+			player.GetComponent<MainController>().CleanDestroyedObject(this);
+		}
     }
 
     protected virtual void GivePoint()
     {
- 
+		DestroyImmediate(this.transform.parent.gameObject);
     }
 }

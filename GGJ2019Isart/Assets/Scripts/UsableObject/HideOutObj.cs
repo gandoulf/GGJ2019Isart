@@ -11,9 +11,9 @@ public class HideOutObj : AUsable
     protected bool bInUse = false;
     public override bool IsUseable { get { return bInUse ? false : bIsUseable ? true : false; } }
 
-    public override void OnButtonPressed(ButtonType type, GameObject player)
+    public override void OnButtonPressed(GameObject player, MainController.eInputType buttonTypePressed)
     {
-        if (type == ButtonType.SPECIAL)
+        if (buttonTypePressed == MainController.eInputType.SPECIAL)
         {
             if (IsUseable)
             {
@@ -32,7 +32,7 @@ public class HideOutObj : AUsable
 				player.GetComponent<MainCharacter>().HideCharacter(this, false);
 			}
         }
-        if (type == ButtonType.ACTION)
+        else if (buttonTypePressed == MainController.eInputType.ACTION)
         {
             soundEmitter.EmitSound();
         }

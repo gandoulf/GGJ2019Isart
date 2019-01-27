@@ -17,4 +17,9 @@ public class HoldReusableObj : HoldBreakableObj
         StopCoroutine(playSoundCoroutine);
         yield return null;
     }
+
+	protected override void GivePoint()
+	{
+		GameManagerSingleton.Instance.IncScore(this.pointWon);
+	}
 }

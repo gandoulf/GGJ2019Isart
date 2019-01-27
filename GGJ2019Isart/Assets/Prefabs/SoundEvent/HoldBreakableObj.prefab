@@ -51,6 +51,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 85253f6559b012f4a905e1e86d53cedd, type: 3}
   - {fileID: 0}
   - {fileID: 0}
+  isAction: 1
+  isSpecial: 0
+  actionType: 2
   soundEmitter:
   - {fileID: 3274102243255360281}
   holdTime: 3
