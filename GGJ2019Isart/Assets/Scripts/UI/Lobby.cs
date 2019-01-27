@@ -14,6 +14,7 @@ public class Lobby : MonoBehaviour
 	{
 		GameManagerSingleton.Instance.indexSlotDictionnary = new Dictionary<int, int>();
 		int nbJoy = Input.GetJoystickNames().Length;
+
 		for (int i = 0; i < nbJoy; i++)
 		{
 			Debug.Log(Input.GetJoystickNames()[i]);

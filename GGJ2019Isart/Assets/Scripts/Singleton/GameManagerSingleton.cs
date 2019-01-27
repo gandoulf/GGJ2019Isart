@@ -127,7 +127,7 @@ public class GameManagerSingleton : MonoBehaviour
 
 	private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
 	{
-		if (scene.name.Contains("Game") == true)
+		if (scene.name.Contains("Menu") == false)
 		{
 			this.SpawnPlayer();
 			this.currentTimer = this.timer;
