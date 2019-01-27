@@ -3,13 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManagerSingleton : Singleton<GameManagerSingleton>
+public class GameManagerSingleton : MonoBehaviour
 {
-    // (Optional) Prevent non-singleton constructor use.
-    protected GameManagerSingleton() { }
+	private static GameManagerSingleton m_Instance = null;
 
-    // Then add whatever code to the class you need as you normally would.
-    public APathNode[] pathNode;
+	public static GameManagerSingleton Instance
+	{
+		get
+		{
+			return m_Instance;
+		}
+	}
+
+	// Then add whatever code to the class you need as you normally would.
+	public APathNode[] pathNode;
 
 	public Dictionary<int, int> indexSlotDictionnary;
 	public GameObject playerPrefab;
@@ -32,10 +39,22 @@ public class GameManagerSingleton : Singleton<GameManagerSingleton>
     public GameObject[] randomThroablePrefab;
     public GameObject RandomThroablePrefab { get { return (randomThroablePrefab[Random.Range(0, randomThroablePrefab.Length)]); } }
 
-    private void Start()
+	private void OnEnable()
+	{
+		if (m_Instance == null)
+		{
+			m_Instance = GameObject.Find("GameManager").GetComponent<GameManagerSingleton>();
+			DontDestroyOnLoad(this.gameObject);
+		}
+		else
+		{
+			Destroy(this.gameObject);
+		}
+	}
+
+	private void Start()
 	{
 		SceneManager.sceneLoaded += this.OnSceneLoaded;
-		DontDestroyOnLoad(this.gameObject);
 	}
 
 	private void Update()
@@ -69,7 +88,6 @@ public class GameManagerSingleton : Singleton<GameManagerSingleton>
 		this.currentRageLevel = 0;
 		this.indexSlotDictionnary.Clear();
 		this.hud = null;
-		this.currentTimer = this.timer;
 		SceneManager.LoadScene("Menu");
 	}
 
@@ -85,9 +103,6 @@ public class GameManagerSingleton : Singleton<GameManagerSingleton>
 			controller.transform.position = spawners[i - 1].transform.position;
 			controller.transform.rotation = spawners[i - 1].transform.rotation;
 			controller.Init(i, this.indexSlotDictionnary[i]);
-            /*Material tmp = new Material(outline);
-            tmp.SetColor("_EmissionColor", playerColors[i]);
-            PlayerOutlineColor.Add(tmp);*/
 		}
 	}
 
