@@ -115,7 +115,10 @@ public class MainController : MonoBehaviour
 	void Update()
     {
 		if (this.currentCharacter.IsCaptured == true)
+		{
+			this.animator.SetBool("IsCaptured", true);
 			return;
+		}
 
 		this.CheckInput();
 
@@ -270,6 +273,7 @@ public class MainController : MonoBehaviour
 		this.animator.SetBool("IsRunning", this.isMoving);
 		this.animator.SetBool("IsSprinting", this.isRunningHold);
 		this.animator.SetBool("IsFront", this.isFront);
+		this.animator.SetBool("IsCaptured", false);
 	}
 
 	void UnSelectUsableObject()
