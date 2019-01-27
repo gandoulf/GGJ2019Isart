@@ -123,6 +123,7 @@ public class GameManagerSingleton : MonoBehaviour
 	{
 		this.score += gain;
 		this.hud.UpdateScore(this.score);
+		this.IncRage(gain);
 	}
 
 	private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
