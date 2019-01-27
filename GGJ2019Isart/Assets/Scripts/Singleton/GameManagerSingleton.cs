@@ -69,7 +69,7 @@ public class GameManagerSingleton : MonoBehaviour
 			}
 			else
 			{
-				this.hud.UpdateTimer(this.currentTimer);
+				this.hud.UpdateTimer(this.timer);
 			}
 		}
 	}
