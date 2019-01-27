@@ -50,7 +50,7 @@ MonoBehaviour:
   rage: 0
   timer: 600
   scoreNeeded: 3200000078000000be000000180100007c010000
-  rageLevel: 32000000100000001c000000
+  rageLevel: 32000000a000000018010000
   currentRageLevel: 0
   outline: {fileID: 2100000, guid: 6aba9e95c8dac4b4d98a5696217c6361, type: 2}
   playerColors:
