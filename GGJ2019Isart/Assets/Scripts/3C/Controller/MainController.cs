@@ -36,6 +36,7 @@ public class MainController : MonoBehaviour
 	private bool isHidden = false;
 	private List<AUsable> usableOjectList = new List<AUsable>();
 	private AUsable currentUsableObject = null;
+	private AUsable.ButtonType currentUsableType;
 
 	private bool isFront = true;
     public bool IsThrowingObjAvailable = false;
@@ -52,7 +53,6 @@ public class MainController : MonoBehaviour
     [SerializeField]
     private float intervalBetweenStep = 0.5f;
 
-	static int nbPlayer = 0;
     public void Awake()
 	{
 		this.currentCharacter = this.GetComponent<MainCharacter>();
@@ -153,7 +153,7 @@ public class MainController : MonoBehaviour
 				}
 				this.currentUsableObject = usableObject;
 				//Show button hover object
-				this.currentUsableObject.OnObjectFocused(true);
+				this.currentUsableObject.OnObjectFocused(this.currentUsableType, true);
 			}
 		}
 	}
@@ -227,6 +227,7 @@ public class MainController : MonoBehaviour
 			if (Input.GetButtonDown(this.inputNameArray[(int)eInputType.ACTION]) == true)
 			{
 				this.currentUsableObject.OnButtonPressed(AUsable.ButtonType.ACTION, this.gameObject);
+				this.currentUsableType = AUsable.ButtonType.ACTION;
 			}
 			else if (Input.GetButtonUp(this.inputNameArray[(int)eInputType.ACTION]) == true)
 			{
@@ -238,6 +239,7 @@ public class MainController : MonoBehaviour
 				{
 					// Exit hiding place
 					this.currentUsableObject.OnButtonPressed(AUsable.ButtonType.SPECIAL, this.gameObject);
+					this.currentUsableType = AUsable.ButtonType.SPECIAL;
 				}
 				else
 				{
@@ -278,8 +280,8 @@ public class MainController : MonoBehaviour
 
 	void UnSelectUsableObject()
 	{
-		this.currentUsableObject.OnButtonReleased(AUsable.ButtonType.ACTION);
-		this.currentUsableObject.OnObjectFocused(false);
+		this.currentUsableObject.OnButtonReleased(this.currentUsableType);
+		this.currentUsableObject.OnObjectFocused(this.currentUsableType, false);
 		this.currentUsableObject = null;
 	}
 }

@@ -153,6 +153,10 @@ public class Lobby : MonoBehaviour
 		{
 			slot.GetComponentInChildren<Text>().text = "Press Start to start";
 		}
+		else
+		{
+			slot.GetComponentInChildren<Text>().text = "";
+		}
 	}
 
 	private int GetFreeSlot()

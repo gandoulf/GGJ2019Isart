@@ -25,10 +25,12 @@ public class MainCharacter : MonoBehaviour
 			this.isCaptured = value;
 			if (this.isCaptured == true)
 			{
+				Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Nun"));
 				this.freePlayerUsableGO.SetActive(true);
 			}
 			else
 			{
+				Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Player"), false);
 				this.freePlayerUsableGO.SetActive(false);
 			}
 		}
