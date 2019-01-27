@@ -10,20 +10,34 @@ public abstract class AUsable : MonoBehaviour
         SPECIAL
     }
 
+	public enum ButtonName
+	{
+		MASH,
+		HOLD,
+		SPECIAL
+	}
+
     protected bool bIsUseable = true;
     public virtual bool IsUseable { get { return bIsUseable; } }
 
     private Material baseMat;
     [SerializeField]
     private Renderer renderer;
-    private List<GameObject> players = new List<GameObject>();
+	private SpriteRenderer spriteRenderer;
+	private List<GameObject> players = new List<GameObject>();
 
-    protected virtual void Start()
+	[SerializeField]
+	private Sprite[] spriteButtons;
+
+	protected virtual void Start()
     {
         if (!renderer)
             renderer = GetComponent<Renderer>();
         if (renderer)
             baseMat = renderer.material;
+		spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+		if (spriteRenderer != null)
+			spriteRenderer.enabled = false;
     }
 
     public virtual void OnButtonPressed(ButtonType type, GameObject player)
@@ -36,9 +50,20 @@ public abstract class AUsable : MonoBehaviour
 
     }
 
-	public virtual void OnObjectFocused(bool isFocused)
+	public virtual void OnObjectFocused(ButtonType type, bool isFocused)
 	{
-
+		if (spriteRenderer != null)
+		{
+			spriteRenderer.enabled = isFocused;
+			if (type == ButtonType.ACTION)
+			{
+				spriteRenderer.sprite = spriteButtons[(int)ButtonName.MASH];
+			}
+			else
+			{
+				spriteRenderer.sprite = spriteButtons[(int)ButtonName.SPECIAL];
+			}
+		}
 	}
 
 	public virtual void OnTriggerEnter(Collider collider)
