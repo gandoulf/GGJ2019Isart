@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 6112925050286529551}
   - component: {fileID: 8723770376663942088}
   - component: {fileID: 2039186936119466004}
+  - component: {fileID: 5062327281135597725}
   m_Layer: 0
   m_Name: Poubelle
   m_TagString: Untagged
@@ -105,6 +106,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.36, y: 0.93, z: 0.34}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &5062327281135597725
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7654162744556836258}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.36, y: 0.93, z: 0.34}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &8638201940842284300
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -177,6 +191,23 @@ PrefabInstance:
       propertyPath: renderer
       value: 
       objectReference: {fileID: 8723770376663942088}
+    - target: {fileID: 5442995119733488377, guid: f286d22a6e74af540bf686d431c93a71,
+        type: 3}
+      propertyPath: spriteAction
+      value: 
+      objectReference: {fileID: 21300000, guid: 8e0ce24362a0af74ba727a4e142e409f,
+        type: 3}
+    - target: {fileID: 5442995119733488377, guid: f286d22a6e74af540bf686d431c93a71,
+        type: 3}
+      propertyPath: spriteSpecial
+      value: 
+      objectReference: {fileID: 21300000, guid: e9db47d3e0af9bd4da50d207b8c60e2c,
+        type: 3}
+    - target: {fileID: 7359564041650641127, guid: f286d22a6e74af540bf686d431c93a71,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f286d22a6e74af540bf686d431c93a71, type: 3}
 --- !u!1 &4519917822456157420 stripped
