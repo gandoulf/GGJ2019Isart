@@ -39,9 +39,25 @@ MonoBehaviour:
   - {fileID: 114169502280908262}
   MasterBankRef: {fileID: 114749383804716806}
   StringsBankRef: {fileID: 114406838465518046}
-  stringsBankWriteTime: 636841864277953962
+  stringsBankWriteTime: 636841868807112367
   cacheVersion: 2
 --- !u!114 &114017420042616674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Run
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114031032405250496
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -371,6 +387,22 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &114184225416949048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Texture
+  Min: 0
+  Max: 3
+  Default: 0
 --- !u!114 &114188899008964406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -431,7 +463,7 @@ MonoBehaviour:
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 114382106637400006}
+  - {fileID: 114611168300857206}
   MinDistance: 1
   MaxDistance: 20
 --- !u!114 &114229338845817792
@@ -514,7 +546,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 114136431877725364}
+  - {fileID: 114603309718546786}
   MinDistance: 0
   MaxDistance: 0
 --- !u!114 &114273633435864234
@@ -667,6 +699,22 @@ MonoBehaviour:
   - {fileID: 114455402823010194}
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &114349635075845236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: PianoToy
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114367647745089328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -719,8 +767,8 @@ MonoBehaviour:
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 114484375575328152}
-  - {fileID: 114524060668582706}
+  - {fileID: 114184225416949048}
+  - {fileID: 114031032405250496}
   MinDistance: 1
   MaxDistance: 20
 --- !u!114 &114390107961215806
@@ -795,7 +843,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: Assets\Audio\Desktop\Master Bank.strings.bank
-  lastModified: 636841864277953962
+  lastModified: 636841868807112367
   LoadResult: 0
   FileSizes:
   - Name: 
@@ -1200,6 +1248,38 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
+--- !u!114 &114603309718546786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: State
+  Min: 0
+  Max: 3
+  Default: 0
+--- !u!114 &114611168300857206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Orgue
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114617859730688564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1661,7 +1741,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: "C:\\ISART DIGITAL\\Ann\xE9e 2\\GGJ-2019\\03_GitHub\\GGJ2019Isart\\GGJ2019Isart\\Assets\\Audio\\Desktop\\Master
     Bank.bank"
-  lastModified: 636841864277864017
+  lastModified: 636841868807042402
   LoadResult: 0
   FileSizes:
   - Name: 
@@ -1687,7 +1767,7 @@ MonoBehaviour:
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 114460946790688238}
+  - {fileID: 114349635075845236}
   MinDistance: 1
   MaxDistance: 20
 --- !u!114 &114757949903509758
