@@ -146,7 +146,12 @@ public class Lobby : MonoBehaviour
 
 	private void Ready(int index)
 	{
-		this.slotList[GameManagerSingleton.Instance.indexSlotDictionnary[index]].GetComponent<Image>().color = Color.green;
+		GameObject slot = this.slotList[GameManagerSingleton.Instance.indexSlotDictionnary[index]];
+		slot.GetComponent<Image>().color = Color.green;
+		if (index == 1)
+		{
+			slot.GetComponentInChildren<Text>().text = "Press Start to start";
+		}
 	}
 
 	private int GetFreeSlot()
