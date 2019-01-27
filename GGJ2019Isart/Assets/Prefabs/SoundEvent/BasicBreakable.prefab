@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 700930d17537da447943849f93470c19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  renderer: {fileID: 5784664925223728177}
+  renderer: {fileID: 0}
   spriteButtons:
   - {fileID: 21300000, guid: 8e0ce24362a0af74ba727a4e142e409f, type: 3}
   - {fileID: 21300000, guid: 85253f6559b012f4a905e1e86d53cedd, type: 3}
