@@ -27,6 +27,7 @@ public class GameManagerSingleton : MonoBehaviour
 	public List<int> rageLevel;
 	public int currentRageLevel;
 
+	private int currentScoreLevel;
 	private HUD hud;
 	private float currentTimer;
 
@@ -38,6 +39,8 @@ public class GameManagerSingleton : MonoBehaviour
 
     public GameObject[] randomThroablePrefab;
     public GameObject RandomThroablePrefab { get { return (randomThroablePrefab[Random.Range(0, randomThroablePrefab.Length)]); } }
+
+	private List<Door> doorList;
 
 	private void OnEnable()
 	{
@@ -55,6 +58,12 @@ public class GameManagerSingleton : MonoBehaviour
 	private void Start()
 	{
 		SceneManager.sceneLoaded += this.OnSceneLoaded;
+		GameObject[] doors = GameObject.FindGameObjectsWithTag("Door");
+
+		for (int i = 0; i < doors.Length; i++)
+		{
+			this.doorList.Add(doors[i].GetComponent<Door>());
+		}
 	}
 
 	private void Update()
@@ -123,8 +132,29 @@ public class GameManagerSingleton : MonoBehaviour
 	{
 		this.score += gain;
 		this.hud.UpdateScore(this.score);
+		this.CheckScoreLevel();
 		this.IncRage(gain);
 		this.hud.UpdateRage(this.rage);
+	}
+
+	private void CheckScoreLevel()
+	{
+		if ((this.currentScoreLevel == 0 && this.score >= this.scoreNeeded[0]) ||
+			(this.currentScoreLevel == 1 && this.score >= this.scoreNeeded[1]) ||
+			(this.currentScoreLevel == 2 && this.score >= this.scoreNeeded[2]) ||
+			(this.currentScoreLevel == 3 && this.score >= this.scoreNeeded[3]))
+		{
+			int nbDoor = this.doorList.Count;
+
+			for (int i = 0; i < nbDoor; i++)
+			{
+				if (this.doorList[i].id == this.currentScoreLevel)
+				{
+					Destroy(this.doorList[i].gameObject);
+				}
+			}
+			this.currentScoreLevel++;
+		}
 	}
 
 	private void OnSceneLoaded(Scene scene, LoadSceneMode mode)

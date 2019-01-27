@@ -9,6 +9,7 @@ TagManager:
   - Wall
   - Spawn
   - HUD
+  - Door
   layers:
   - Default
   - TransparentFX
