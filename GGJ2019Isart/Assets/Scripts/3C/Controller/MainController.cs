@@ -117,8 +117,12 @@ public class MainController : MonoBehaviour
 		if (this.currentCharacter.IsCaptured == true)
 			return;
 
-		this.UpdateCurrentActiveObject();
 		this.CheckInput();
+
+		if (this.currentCharacter.isHidden == true)
+			return;
+
+		this.UpdateCurrentActiveObject();
 		this.MoveController();
 		this.SetAnimationStates();
 	}
@@ -171,7 +175,7 @@ public class MainController : MonoBehaviour
 			{
 				this.spriteRenderer.flipX = true;
 			}
-			else
+			else if (this.axisValue[0] < 0)
 			{
 				this.spriteRenderer.flipX = false;
 			}
@@ -184,6 +188,14 @@ public class MainController : MonoBehaviour
 			if (this.axisValue[1] > 0)
 			{
 				this.isFront = false;
+				if (this.axisValue[0] > 0)
+				{
+					this.spriteRenderer.flipX = false;
+				}
+				else if (this.axisValue[0] < 0)
+				{
+					this.spriteRenderer.flipX = true;
+				}
 			}
 		}
 		if (this.isMoving == true && Mathf.Abs(Input.GetAxis(this.inputNameArray[(int)eInputType.RUN])) > 0.2)
