@@ -415,6 +415,7 @@ MonoBehaviour:
   score: {fileID: 5541602781792137988}
   timer: {fileID: 8401271121247722063}
   rage: {fileID: 7091227858438672930}
+  openingEvent: []
 --- !u!1 &7990839391122532083
 GameObject:
   m_ObjectHideFlags: 0
@@ -447,10 +448,10 @@ RectTransform:
   m_Father: {fileID: 7082266840850779044}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 371.6, y: 207.47}
-  m_SizeDelta: {x: 136.7, y: 55}
+  m_AnchorMin: {x: 0.8258225, y: 0.836}
+  m_AnchorMax: {x: 0.975, y: 0.95400006}
+  m_AnchoredPosition: {x: 0.5999756, y: 1.9700012}
+  m_SizeDelta: {x: 0.7000122, y: -6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7632500090885971092
 CanvasRenderer:
