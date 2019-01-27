@@ -50,9 +50,7 @@ public class MainCharacter : MonoBehaviour
 	{
 		if (hide == true)
 		{
-			this.GetComponent<Renderer>().enabled = false;
-			Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Nun"));
-			this.isHidden = true;
+			StartCoroutine(LaunchHideCoroutine());
 		}
 		else
 		{
@@ -60,5 +58,25 @@ public class MainCharacter : MonoBehaviour
 			Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Nun"), false);
 			this.isHidden = false;
 		}
+	}
+
+	private IEnumerator LaunchHideCoroutine()
+	{
+		Animator animator = this.GetComponent<Animator>();
+		animator.SetBool("IsHidding", true);
+		while (animator.GetCurrentAnimatorStateInfo(0).IsName("HidingState") == false)
+		{
+			yield return null;
+		}
+		while (animator.GetCurrentAnimatorStateInfo(0).IsName("HidingState") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f)
+		{
+			//Wait every frame until animation has finished
+			yield return null;
+		}
+		animator.SetBool("IsHidding", false);
+		this.GetComponent<Renderer>().enabled = false;
+		Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Nun"));
+		this.isHidden = true;
+		yield return null;
 	}
 }

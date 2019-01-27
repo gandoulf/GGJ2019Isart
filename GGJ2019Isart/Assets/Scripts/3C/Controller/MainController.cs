@@ -238,12 +238,12 @@ public class MainController : MonoBehaviour
 			if (Input.GetButtonDown(this.inputNameArray[(int)eInputType.ACTION]) == true)
 			{
 				this.currentUsableObject.OnButtonPressed(this.gameObject, eInputType.ACTION);
-				this.animator.SetBool("IsHitting", true);
+				//this.animator.SetBool("IsHitting", true);
 			}
 			else if (Input.GetButtonUp(this.inputNameArray[(int)eInputType.ACTION]) == true)
 			{
 				this.currentUsableObject.OnButtonReleased();
-				this.animator.SetBool("IsHitting", false);
+				//this.animator.SetBool("IsHitting", false);
 			}
 			else if (Input.GetButtonDown(this.inputNameArray[(int)eInputType.SPECIAL]) == true)
 			{

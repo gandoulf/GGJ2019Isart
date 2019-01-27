@@ -182,6 +182,16 @@ PrefabInstance:
       propertyPath: playSoundFirstTime
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5442995119733488377, guid: f286d22a6e74af540bf686d431c93a71,
+        type: 3}
+      propertyPath: pointWon
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5442995119733488377, guid: f286d22a6e74af540bf686d431c93a71,
+        type: 3}
+      propertyPath: numberOfMashNeeded
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3286919874896460584, guid: f286d22a6e74af540bf686d431c93a71,
         type: 3}
       propertyPath: Event
