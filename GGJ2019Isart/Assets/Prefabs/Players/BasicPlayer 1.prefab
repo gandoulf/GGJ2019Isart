@@ -52,7 +52,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 2
-  m_Radius: 0.4
+  m_Radius: 0.3
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
@@ -466,6 +466,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   renderer: {fileID: 0}
+  spriteButtons: []
+  isAction: 0
+  isSpecial: 0
+  actionType: 0
   soundEmitter: []
   holdTime: 2
   intervalBetweenSound: 5
