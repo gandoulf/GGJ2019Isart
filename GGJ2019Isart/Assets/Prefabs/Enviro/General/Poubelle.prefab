@@ -203,6 +203,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: e9db47d3e0af9bd4da50d207b8c60e2c,
         type: 3}
+    - target: {fileID: 5442995119733488377, guid: f286d22a6e74af540bf686d431c93a71,
+        type: 3}
+      propertyPath: numberOfMashNeeded
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7359564041650641127, guid: f286d22a6e74af540bf686d431c93a71,
         type: 3}
       propertyPath: m_RootOrder
