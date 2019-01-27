@@ -58,12 +58,6 @@ public class GameManagerSingleton : MonoBehaviour
 	private void Start()
 	{
 		SceneManager.sceneLoaded += this.OnSceneLoaded;
-		GameObject[] doors = GameObject.FindGameObjectsWithTag("Door");
-
-		for (int i = 0; i < doors.Length; i++)
-		{
-			this.doorList.Add(doors[i].GetComponent<Door>());
-		}
 	}
 
 	private void Update()
@@ -165,6 +159,13 @@ public class GameManagerSingleton : MonoBehaviour
 			this.currentTimer = this.timer;
 			this.hud = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUD>();
 			this.hud.Init(this.scoreNeeded[this.scoreNeeded.Count - 1]);
+			GameObject[] doors = GameObject.FindGameObjectsWithTag("Door");
+
+			this.doorList = new List<Door>();
+			for (int i = 0; i < doors.Length; i++)
+			{
+				this.doorList.Add(doors[i].GetComponent<Door>());
+			}
 		}
 	}
 }
