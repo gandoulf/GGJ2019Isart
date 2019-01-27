@@ -29,7 +29,7 @@ public class MashBreakableObj : AUsable
     }
 
     protected virtual void GivePoint()
-    {d
+    {
 		GameManagerSingleton.Instance.IncScore(this.pointWon);
     }
 }
