@@ -64,7 +64,6 @@ public class MainController : MonoBehaviour
 
 		Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Player"));
         StartCoroutine(WalkingStep());
-		this.Init(++nbPlayer, nbPlayer - 1);
     }
 
     public void Init(int joyId, int slotId)
@@ -73,10 +72,6 @@ public class MainController : MonoBehaviour
 		this.playerSlotId = slotId;
 
 		this.CreateInputNameArray();
-		if (slotId != 0)
-		{
-			this.currentCharacter.IsCaptured = true;
-		}
 	}
 
     protected IEnumerator WalkingStep()
@@ -121,8 +116,7 @@ public class MainController : MonoBehaviour
     {
 		if (this.currentCharacter.IsCaptured == true)
 			return;
-		if (playerSlotId != 0)
-			return;
+
 		this.UpdateCurrentActiveObject();
 		this.CheckInput();
 		this.MoveController();
@@ -200,7 +194,6 @@ public class MainController : MonoBehaviour
         if(IsThrowingObjAvailable && Input.GetButtonUp(this.inputNameArray[(int)eInputType.ACTION]) == true)
         {
             IsThrowingObjAvailable = false;
-            Debug.Log("toto");
             Vector3 dir;
             var horiz = this.axisValue[0];
             var vert = this.axisValue[1];
@@ -256,7 +249,7 @@ public class MainController : MonoBehaviour
 		pos.y = Mathf.Clamp01(pos.y);
 		this.transform.position = Camera.main.ViewportToWorldPoint(pos);
 		pos = this.transform.position;
-		pos.y = 0.0f;
+		pos.y = 0.2f;
 		this.transform.position = pos;
 	}
 	

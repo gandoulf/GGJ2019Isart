@@ -6,9 +6,7 @@ public class FreePlayerUsable : HoldReusableObj
 {
 	protected override IEnumerator HoldButton()
 	{
-		Debug.Log("HoldButton0");
 		yield return new WaitForSeconds(holdTime);
-		Debug.Log("HoldButton");
 		bIsUseable = true;
 		bInUse = false;
 		this.GetComponentInParent<MainCharacter>().IsCaptured = false;
@@ -20,7 +18,6 @@ public class FreePlayerUsable : HoldReusableObj
 	{
 		if (collider.gameObject != this.transform.parent.gameObject && collider.CompareTag("Player") == true && IsUseable == true)
 		{
-			Debug.Log("collider");
 			collider.gameObject.GetComponent<MainController>().OnObjectNearEnter(this);
 		}
 	}
@@ -29,7 +26,6 @@ public class FreePlayerUsable : HoldReusableObj
 	{
 		if (collider.gameObject != this.transform.parent.gameObject && collider.CompareTag("Player") == true)
 		{
-			Debug.Log("collider out");
 			collider.gameObject.GetComponent<MainController>().OnObjectNearExit(this);
 		}
 	}

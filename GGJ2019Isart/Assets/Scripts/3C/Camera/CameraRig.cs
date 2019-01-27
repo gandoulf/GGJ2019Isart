@@ -145,25 +145,25 @@ public class CameraRig : MonoBehaviour
 
 	private void CheckWall()
 	{
-		//int nbPlayer = GameManagerSingleton.Instance.indexSlotDictionnary.Count;
+		int nbPlayer = GameManagerSingleton.Instance.indexSlotDictionnary.Count;
 
-		//for (int i = 0; i < nbPlayer; i++)
-		//{
-		//	RaycastHit hit;
-			
-		//	if (Physics.Raycast(this.currentCamera.transform.position, this.targets[i].transform.position - this.currentCamera.transform.position, out hit, Mathf.Infinity))
-		//	{
-		//		if (hit.collider.CompareTag("Wall") == true)
-		//		{
-		//			hit.collider.gameObject.GetComponent<Wall>().ChangeAlpha(true);
-		//			this.wallOccludedList.Add(hit.collider.gameObject);
-		//		}
-		//		else if (this.wallOccludedList.Count > 0)
-		//		{
-		//			this.wallOccludedList[0].GetComponent<Wall>().ChangeAlpha(false);
-		//			this.wallOccludedList.Clear();
-		//		}
-		//	}
-		//}
+		for (int i = 0; i < nbPlayer; i++)
+		{
+			RaycastHit hit;
+
+			if (Physics.Raycast(this.currentCamera.transform.position, this.targets[i].transform.position - this.currentCamera.transform.position, out hit, Mathf.Infinity))
+			{
+				if (hit.collider.CompareTag("Wall") == true)
+				{
+					hit.collider.gameObject.GetComponent<Wall>().ChangeAlpha(true);
+					this.wallOccludedList.Add(hit.collider.gameObject);
+				}
+				else if (this.wallOccludedList.Count > 0)
+				{
+					this.wallOccludedList[0].GetComponent<Wall>().ChangeAlpha(false);
+					this.wallOccludedList.Clear();
+				}
+			}
+		}
 	}
 }
