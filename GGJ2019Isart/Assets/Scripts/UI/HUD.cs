@@ -1,13 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class HUD : MonoBehaviour
-{
-	[SerializeField] private Image score;
-	[SerializeField] private Text timer;
+{ 
+
+    [SerializeField] private Image score;
+	[SerializeField] private Image timer;
 	[SerializeField] private Image rage;
+
+    [SerializeField]
+    List<UnityEvent> openingEvent;
 
 	private float maxScore;
 
@@ -30,9 +35,17 @@ public class HUD : MonoBehaviour
 
 	public void UpdateTimer(float newTimer)
 	{
-		string minutes = Mathf.Floor(newTimer / 60).ToString("00");
-		string seconds = (newTimer % 60).ToString("00");
+		//string minutes = Mathf.Floor(newTimer / 60).ToString("00");
+		//string seconds = (newTimer % 60).ToString("00");
 
-		this.timer.text = minutes + ":" + seconds;
-	}
+		this.timer.fillAmount -= 1.0f / newTimer * Time.deltaTime;
+        if (timer.fillAmount < 50 && openingEvent.Count != 0)
+        {
+            foreach (var item in openingEvent)
+            {
+                item.Invoke();
+            }
+            openingEvent.Clear();
+        }
+    }
 }
