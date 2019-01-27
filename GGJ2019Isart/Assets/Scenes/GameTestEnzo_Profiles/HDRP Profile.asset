@@ -241,7 +241,7 @@ MonoBehaviour:
     value: 0.26
   toneCurveGamma:
     overrideState: 1
-    value: 1
+    value: 1.2
   ldrLut:
     overrideState: 1
     value: {fileID: 0}
@@ -302,13 +302,13 @@ MonoBehaviour:
     value: 100
   lift:
     overrideState: 1
-    value: {x: 0.9026699, y: 0.9437182, z: 1, w: -0.02741604}
+    value: {x: 0.86117923, y: 0.90744805, z: 1, w: -0.02741604}
   gamma:
     overrideState: 1
-    value: {x: 0.7840016, y: 0.8819778, z: 1, w: 0.3701165}
+    value: {x: 1, y: 0.7665727, z: 0.62700844, w: 0.3701165}
   gain:
     overrideState: 1
-    value: {x: 1, y: 0.9569099, z: 0.9569098, w: -0.12337215}
+    value: {x: 0.86640596, y: 0.8782208, z: 1, w: -0.12337215}
   masterCurve:
     overrideState: 1
     value:
