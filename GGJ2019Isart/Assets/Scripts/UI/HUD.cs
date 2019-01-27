@@ -16,6 +16,8 @@ public class HUD : MonoBehaviour
 
 	private float maxScore;
 
+	public List<GameObject> stateList;
+
 	public void Init(float maxScore)
 	{
 		this.maxScore = maxScore;
@@ -31,6 +33,24 @@ public class HUD : MonoBehaviour
 	public void UpdateRage(float newRage)
 	{
 		this.rage.fillAmount = newRage / 100.0f;
+		if (newRage >= 0.0f && newRage < 50.0f)
+		{
+			this.stateList[0].SetActive(true);
+			this.stateList[1].SetActive(false);
+			this.stateList[2].SetActive(false);
+		}
+		else if (newRage >= 50.0f && newRage < 160.0f)
+		{
+			this.stateList[0].SetActive(false);
+			this.stateList[1].SetActive(true);
+			this.stateList[2].SetActive(false);
+		}
+		else if (newRage >= 280.0f)
+		{
+			this.stateList[0].SetActive(false);
+			this.stateList[1].SetActive(false);
+			this.stateList[2].SetActive(true);
+		}
 	}
 
 	public void UpdateTimer(float newTimer)
