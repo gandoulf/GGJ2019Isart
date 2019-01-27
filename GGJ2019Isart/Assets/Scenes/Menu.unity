@@ -679,7 +679,7 @@ PrefabInstance:
     - target: {fileID: 2101098547173140214, guid: c3bd5f75b8dde32459498963c5354f32,
         type: 3}
       propertyPath: sceneToLaunch
-      value: GameTestEnzo
+      value: Game
       objectReference: {fileID: 0}
     - target: {fileID: 2101098547979873357, guid: c3bd5f75b8dde32459498963c5354f32,
         type: 3}
@@ -695,6 +695,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: -2.2999878
+      objectReference: {fileID: 0}
+    - target: {fileID: 2101098546771784492, guid: c3bd5f75b8dde32459498963c5354f32,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1.1266785
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3bd5f75b8dde32459498963c5354f32, type: 3}
