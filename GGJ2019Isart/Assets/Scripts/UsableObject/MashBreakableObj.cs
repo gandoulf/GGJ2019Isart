@@ -17,9 +17,9 @@ public class MashBreakableObj : AUsable
 	protected int mashedTime;
 	protected bool alreadyPlayed;
 
-    public override void OnButtonPressed(ButtonType type, GameObject player)
+    public override void OnButtonPressed(GameObject player, MainController.eInputType buttonTypePressed)
     {
-        if (type == ButtonType.ACTION && bIsUseable == true)
+        if (buttonTypePressed == MainController.eInputType.ACTION && bIsUseable == true)
         {
 			if (this.playSoundFirstTime == true && this.alreadyPlayed == false)
 			{
@@ -35,7 +35,8 @@ public class MashBreakableObj : AUsable
             {
                 bIsUseable = false;
                 GivePoint();
-            }
+				player.GetComponent<MainController>().CleanDestroyedObject(this);
+			}
         }
     }
 
@@ -46,5 +47,6 @@ public class MashBreakableObj : AUsable
 			this.endSound.EmitSound();
 		}
 		GameManagerSingleton.Instance.IncScore(this.pointWon);
-    }
+		DestroyImmediate(this.transform.parent.gameObject);
+	}
 }

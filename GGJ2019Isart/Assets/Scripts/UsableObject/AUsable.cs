@@ -4,17 +4,11 @@ using UnityEngine;
 
 public abstract class AUsable : MonoBehaviour
 {
-    public enum ButtonType
-    {
-        ACTION,
-        SPECIAL
-    }
-
-	public enum ButtonName
+	public enum ActionType
 	{
+		NONE = 0,
 		MASH,
-		HOLD,
-		SPECIAL
+		HOLD
 	}
 
     protected bool bIsUseable = true;
@@ -29,6 +23,11 @@ public abstract class AUsable : MonoBehaviour
 	[SerializeField]
 	private Sprite[] spriteButtons;
 
+	public bool isAction = false;
+	public bool isSpecial = false;
+
+	public ActionType actionType = ActionType.NONE;
+
 	protected virtual void Start()
     {
         if (!renderer)
@@ -40,28 +39,32 @@ public abstract class AUsable : MonoBehaviour
 			spriteRenderer.enabled = false;
     }
 
-    public virtual void OnButtonPressed(ButtonType type, GameObject player)
+    public virtual void OnButtonPressed(GameObject player, MainController.eInputType buttonTypePressed)
     {
 
     }
 
-    public virtual void OnButtonReleased(ButtonType type)
+    public virtual void OnButtonReleased()
     {
 
     }
 
-	public virtual void OnObjectFocused(ButtonType type, bool isFocused)
+	public virtual void OnObjectFocused(bool isFocused)
 	{
 		if (spriteRenderer != null)
 		{
 			spriteRenderer.enabled = isFocused;
-			if (type == ButtonType.ACTION)
+			if (actionType == ActionType.MASH)
 			{
-				spriteRenderer.sprite = spriteButtons[(int)ButtonName.MASH];
+				spriteRenderer.sprite = spriteButtons[((int)ActionType.MASH) - 1];
 			}
-			else
+			else if (actionType == ActionType.HOLD)
 			{
-				spriteRenderer.sprite = spriteButtons[(int)ButtonName.SPECIAL];
+				spriteRenderer.sprite = spriteButtons[((int)ActionType.HOLD) - 1];
+			}
+			if (isSpecial == true)
+			{
+				//Todo Add two types to display
 			}
 		}
 	}

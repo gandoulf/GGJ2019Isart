@@ -6,7 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class MainController : MonoBehaviour
 {
-	private enum eInputType : int
+	public enum eInputType : int
 	{
 		X = 0,
 		Y,
@@ -36,7 +36,6 @@ public class MainController : MonoBehaviour
 	private bool isHidden = false;
 	private List<AUsable> usableOjectList = new List<AUsable>();
 	private AUsable currentUsableObject = null;
-	private AUsable.ButtonType currentUsableType;
 
 	private bool isFront = true;
     public bool IsThrowingObjAvailable = false;
@@ -111,6 +110,18 @@ public class MainController : MonoBehaviour
 		}
 	}
 
+	public void CleanDestroyedObject(AUsable usableScript)
+	{
+		if (this.usableOjectList.Contains(usableScript) == true)
+		{
+			this.usableOjectList.Remove(usableScript);
+		}
+		if (this.currentUsableObject != null && this.currentUsableObject == usableScript)
+		{
+			this.UnSelectUsableObject();
+		}
+	}
+
 	// Update is called once per frame
 	void Update()
     {
@@ -153,7 +164,7 @@ public class MainController : MonoBehaviour
 				}
 				this.currentUsableObject = usableObject;
 				//Show button hover object
-				this.currentUsableObject.OnObjectFocused(this.currentUsableType, true);
+				this.currentUsableObject.OnObjectFocused(true);
 			}
 		}
 	}
@@ -226,25 +237,25 @@ public class MainController : MonoBehaviour
 			//Button
 			if (Input.GetButtonDown(this.inputNameArray[(int)eInputType.ACTION]) == true)
 			{
-				this.currentUsableObject.OnButtonPressed(AUsable.ButtonType.ACTION, this.gameObject);
-				this.currentUsableType = AUsable.ButtonType.ACTION;
+				this.currentUsableObject.OnButtonPressed(this.gameObject, eInputType.ACTION);
+				this.animator.SetBool("IsHitting", true);
 			}
 			else if (Input.GetButtonUp(this.inputNameArray[(int)eInputType.ACTION]) == true)
 			{
-				this.currentUsableObject.OnButtonReleased(AUsable.ButtonType.ACTION);
+				this.currentUsableObject.OnButtonReleased();
+				this.animator.SetBool("IsHitting", false);
 			}
 			else if (Input.GetButtonDown(this.inputNameArray[(int)eInputType.SPECIAL]) == true)
 			{
 				if (this.isHidden == false)
 				{
 					// Exit hiding place
-					this.currentUsableObject.OnButtonPressed(AUsable.ButtonType.SPECIAL, this.gameObject);
-					this.currentUsableType = AUsable.ButtonType.SPECIAL;
+					this.currentUsableObject.OnButtonPressed(this.gameObject, eInputType.SPECIAL);
 				}
 				else
 				{
 					// Hide
-					this.currentUsableObject.OnButtonReleased(AUsable.ButtonType.SPECIAL);
+					this.currentUsableObject.OnButtonReleased();
 				}
 			}
 		}
@@ -280,8 +291,8 @@ public class MainController : MonoBehaviour
 
 	void UnSelectUsableObject()
 	{
-		this.currentUsableObject.OnButtonReleased(this.currentUsableType);
-		this.currentUsableObject.OnObjectFocused(this.currentUsableType, false);
+		this.currentUsableObject.OnButtonReleased();
+		this.currentUsableObject.OnObjectFocused(false);
 		this.currentUsableObject = null;
 	}
 }

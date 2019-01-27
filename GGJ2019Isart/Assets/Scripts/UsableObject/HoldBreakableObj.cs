@@ -18,27 +18,32 @@ public class HoldBreakableObj : AUsable
     protected Coroutine holdingCoroutine = null;
     protected Coroutine playSoundCoroutine = null;
 
+	protected GameObject playerHoldingObject = null;
+
     public override bool IsUseable { get { return bInUse ? false : bIsUseable ? true : false; } }
 
-    public override void OnButtonPressed(ButtonType type, GameObject player)
+    public override void OnButtonPressed(GameObject player, MainController.eInputType buttonTypePressed)
     {
-        if (type == ButtonType.ACTION && IsUseable)
+        if (playerHoldingObject == null && buttonTypePressed == MainController.eInputType.ACTION && IsUseable)
         {
             bInUse = true;
-            holdingCoroutine = StartCoroutine(HoldButton());
+			playerHoldingObject = player;
+			holdingCoroutine = StartCoroutine(HoldButton());
             playSoundCoroutine = StartCoroutine(playSound());
         }
     }
 
-    public override void OnButtonReleased(ButtonType type)
+    public override void OnButtonReleased()
     {
-        if (type == ButtonType.ACTION && bInUse == true)
+        if (bInUse == true)
         {
             bInUse = false;
             StopCoroutine(holdingCoroutine);
             StopCoroutine(playSoundCoroutine);
         }
-    }
+		playerHoldingObject = null;
+
+	}
 
     protected virtual IEnumerator playSound()
     {
@@ -55,12 +60,14 @@ public class HoldBreakableObj : AUsable
         bIsUseable = false;
         bInUse = false;
         GivePoint();
-        StopCoroutine(playSoundCoroutine);
+		playerHoldingObject.GetComponent<MainController>().CleanDestroyedObject(this);
+		StopCoroutine(playSoundCoroutine);
         yield return null;
     }
 
     protected virtual void GivePoint()
 	{
 		GameManagerSingleton.Instance.IncScore(this.pointWon);
+		DestroyImmediate(this.transform.parent.gameObject);
 	}
 }
