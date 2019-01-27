@@ -123,11 +123,13 @@ public class GameManagerSingleton : MonoBehaviour
 	{
 		this.score += gain;
 		this.hud.UpdateScore(this.score);
+		this.IncRage(gain);
+		this.hud.UpdateRage(this.rage);
 	}
 
 	private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
 	{
-		if (scene.name.Contains("Game") == true)
+		if (scene.name.Contains("Menu") == false)
 		{
 			this.SpawnPlayer();
 			this.currentTimer = this.timer;

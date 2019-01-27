@@ -9,21 +9,21 @@ public class HUD : MonoBehaviour
 	[SerializeField] private Text timer;
 	[SerializeField] private Image rage;
 
-	private int maxScore;
+	private float maxScore;
 
-	public void Init(int maxScore)
+	public void Init(float maxScore)
 	{
 		this.maxScore = maxScore;
 		this.UpdateRage(0);
 		this.UpdateScore(0);
 	}
 
-	public void UpdateScore(int newScore)
+	public void UpdateScore(float newScore)
 	{
 		this.score.fillAmount = newScore / this.maxScore; 
 	}
 
-	public void UpdateRage(int newRage)
+	public void UpdateRage(float newRage)
 	{
 		this.rage.fillAmount = newRage / 100.0f;
 	}

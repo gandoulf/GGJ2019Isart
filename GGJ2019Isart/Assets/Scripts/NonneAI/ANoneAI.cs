@@ -32,11 +32,15 @@ public abstract class ANoneAI : MonoBehaviour
     private float breakTime;
     private float actualTime = 0;
 
+	private Animator animator;
+	private SpriteRenderer spriteRenderer;
 
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+		animator = GetComponentInChildren<Animator>();
+		spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         directionPoint.transform.parent = null;
     }
 
@@ -52,7 +56,9 @@ public abstract class ANoneAI : MonoBehaviour
             else
                 KeepChasing();
         }
-    }
+		SetRendererOrientation();
+
+	}
 
     protected virtual void Waiting()
     {
@@ -62,7 +68,7 @@ public abstract class ANoneAI : MonoBehaviour
         {
             actualTime = 0;
             IsBreakTime = false;
-        }
+		}
     }
 
     protected virtual void KeepChasing()
@@ -71,7 +77,8 @@ public abstract class ANoneAI : MonoBehaviour
         {
             ResetDestination();
             IsBreakTime = true;
-        }
+			animator.SetBool("IsWalking", false);
+		}
         else if (destination.transform.position != directionPoint.transform.position)
         {
             agent.SetDestination(destination.transform.position);
@@ -106,8 +113,9 @@ public abstract class ANoneAI : MonoBehaviour
             previousDestination = null;
             agent.SetDestination(destination.transform.position);
             attractionForce = destination.GetComponent<APathNode>().SoundEmitter.SoundWeight;
-        }
-    }
+		}
+		animator.SetBool("IsWalking", true);
+	}
 
     public virtual void NonneToClose()
     {
@@ -122,7 +130,8 @@ public abstract class ANoneAI : MonoBehaviour
         attractionForce = 0;
         ViewDetection.ResetCollider();
         SoundDetection.ResetCollider();
-    }
+		animator.SetBool("IsRunning", false);
+	}
 
     public virtual void SoundTriggerEvent(GameObject other)
     {
@@ -151,7 +160,8 @@ public abstract class ANoneAI : MonoBehaviour
             attractionForce = 1;
             directionPoint.transform.position = other.transform.position;
             agent.SetDestination(destination.transform.position);
-        }
+			animator.SetBool("IsRunning", true);
+		}
     }
 
     public virtual void ViewExitEvent(GameObject other)
@@ -170,4 +180,21 @@ public abstract class ANoneAI : MonoBehaviour
         destination = directionPoint;
         agent.SetDestination(destination.transform.position);
     }
+
+	protected void SetRendererOrientation()
+	{
+		spriteRenderer.transform.rotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
+
+		animator.SetBool("IsFront", true);
+		this.spriteRenderer.flipX = false;
+		float angle = Vector3.SignedAngle(transform.forward, Vector3.forward, Vector3.up);
+		if (angle >= -45.0f && angle <= 45.0f)
+		{
+			animator.SetBool("IsFront", false);
+		}
+		if (angle < -45.0f && angle >= -135.0f)
+		{
+			this.spriteRenderer.flipX = true;
+		}
+	}
 }
