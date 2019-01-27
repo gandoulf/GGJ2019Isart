@@ -50,7 +50,7 @@ public class GameManagerSingleton : Singleton<GameManagerSingleton>
 			}
 			else
 			{
-				this.hud.UpdateTimer(this.timer);
+				this.hud.UpdateTimer(this.currentTimer);
 			}
 		}
 	}
@@ -63,6 +63,7 @@ public class GameManagerSingleton : Singleton<GameManagerSingleton>
 		{
 			Destroy(players[i]);
 		}
+		Destroy(Camera.main.transform.parent.gameObject);
 		this.score = 0;
 		this.rage = 0;
 		this.currentRageLevel = 0;
@@ -111,8 +112,12 @@ public class GameManagerSingleton : Singleton<GameManagerSingleton>
 
 	private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
 	{
-		this.SpawnPlayer();
-		this.hud = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUD>();
-		this.hud.Init(this.scoreNeeded[this.scoreNeeded.Count - 1]);
+		if (scene.name.Contains("Game") == true)
+		{
+			this.SpawnPlayer();
+			this.currentTimer = this.timer;
+			this.hud = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUD>();
+			this.hud.Init(this.scoreNeeded[this.scoreNeeded.Count - 1]);
+		}
 	}
 }
