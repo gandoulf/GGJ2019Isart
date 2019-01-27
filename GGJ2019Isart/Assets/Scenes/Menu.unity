@@ -123,6 +123,9 @@ GameObject:
   - component: {fileID: 1439420523}
   - component: {fileID: 1439420522}
   - component: {fileID: 1439420524}
+  - component: {fileID: 1439420526}
+  - component: {fileID: 1439420525}
+  - component: {fileID: 1439420527}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -254,6 +257,60 @@ MonoBehaviour:
       enableFptlForForwardOpaque: 1
       enableBigTilePrepass: 1
       isFptlEnabled: 1
+--- !u!114 &1439420525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1439420520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ListenerNumber: 0
+--- !u!114 &1439420526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1439420520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9468c5f457ace64f8d4df6d642b107f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LoadEvent: 1
+  UnloadEvent: 0
+  Banks:
+  - Master Bank
+  CollisionTag: 
+  PreloadSamples: 0
+--- !u!114 &1439420527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1439420520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: event:/UI/Amb_UI
+  PlayEvent: 1
+  StopEvent: 2
+  CollisionTag: 
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
 --- !u!1 &1512650804
 GameObject:
   m_ObjectHideFlags: 0
@@ -552,6 +609,51 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4049633339993509994, guid: 91b1b084a7405e44c9eb340426ce7c3b,
+        type: 3}
+      propertyPath: scoreNeeded.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4049633339993509994, guid: 91b1b084a7405e44c9eb340426ce7c3b,
+        type: 3}
+      propertyPath: scoreNeeded.Array.data[4]
+      value: 380
+      objectReference: {fileID: 0}
+    - target: {fileID: 4049633339993509994, guid: 91b1b084a7405e44c9eb340426ce7c3b,
+        type: 3}
+      propertyPath: scoreNeeded.Array.data[0]
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4049633339993509994, guid: 91b1b084a7405e44c9eb340426ce7c3b,
+        type: 3}
+      propertyPath: scoreNeeded.Array.data[1]
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 4049633339993509994, guid: 91b1b084a7405e44c9eb340426ce7c3b,
+        type: 3}
+      propertyPath: scoreNeeded.Array.data[2]
+      value: 190
+      objectReference: {fileID: 0}
+    - target: {fileID: 4049633339993509994, guid: 91b1b084a7405e44c9eb340426ce7c3b,
+        type: 3}
+      propertyPath: scoreNeeded.Array.data[3]
+      value: 280
+      objectReference: {fileID: 0}
+    - target: {fileID: 4049633339993509994, guid: 91b1b084a7405e44c9eb340426ce7c3b,
+        type: 3}
+      propertyPath: rageLevel.Array.data[0]
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4049633339993509994, guid: 91b1b084a7405e44c9eb340426ce7c3b,
+        type: 3}
+      propertyPath: rageLevel.Array.data[1]
+      value: 160
+      objectReference: {fileID: 0}
+    - target: {fileID: 4049633339993509994, guid: 91b1b084a7405e44c9eb340426ce7c3b,
+        type: 3}
+      propertyPath: rageLevel.Array.data[2]
+      value: 380
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91b1b084a7405e44c9eb340426ce7c3b, type: 3}
 --- !u!1001 &2101098547202835961
@@ -711,5 +813,67 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2101098547428605980, guid: c3bd5f75b8dde32459498963c5354f32,
+        type: 3}
+      propertyPath: click
+      value: 
+      objectReference: {fileID: 2101098547202835964}
+    - target: {fileID: 2101098547428605980, guid: c3bd5f75b8dde32459498963c5354f32,
+        type: 3}
+      propertyPath: switchUI
+      value: 
+      objectReference: {fileID: 2101098547202835963}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3bd5f75b8dde32459498963c5354f32, type: 3}
+--- !u!1 &2101098547202835962 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2101098547428605977, guid: c3bd5f75b8dde32459498963c5354f32,
+    type: 3}
+  m_PrefabInstance: {fileID: 2101098547202835961}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2101098547202835963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2101098547202835962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: event:/UI/UI_Switch
+  PlayEvent: 0
+  StopEvent: 0
+  CollisionTag: 
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
+--- !u!114 &2101098547202835964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2101098547202835962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: event:/UI/UI_Click
+  PlayEvent: 0
+  StopEvent: 0
+  CollisionTag: 
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
