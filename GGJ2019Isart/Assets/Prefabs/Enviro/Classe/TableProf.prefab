@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6853143950505900988}
   - component: {fileID: 5656989837425358929}
   - component: {fileID: 935383630659874591}
+  - component: {fileID: 3696969264001406301}
   m_Layer: 0
   m_Name: TableProf
   m_TagString: Untagged
@@ -87,6 +88,19 @@ BoxCollider:
   m_GameObject: {fileID: 7127654009723164605}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.974115, y: 2.506432, z: 2.3208666}
+  m_Center: {x: 0.4870575, y: 1.2335368, z: 1.1522992}
+--- !u!65 &3696969264001406301
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7127654009723164605}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.974115, y: 2.506432, z: 2.3208666}

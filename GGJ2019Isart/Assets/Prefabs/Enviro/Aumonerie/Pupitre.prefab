@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1162508101}
   - component: {fileID: 1162508100}
   - component: {fileID: 1162508099}
+  - component: {fileID: 4901275363215742543}
   m_Layer: 0
   m_Name: Pupitre
   m_TagString: Untagged
@@ -58,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 73c176f402d2c2f4d929aa5da7585d17, type: 2}
+  - {fileID: 2100000, guid: 031f05b29c731d64cbfeec49c2a9f3ea, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -87,6 +88,19 @@ BoxCollider:
   m_GameObject: {fileID: 1162508098}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.2585394, y: 0.5151655, z: 1.942716}
+  m_Center: {x: 0.4242752, y: 0.17833103, z: 0.97134787}
+--- !u!65 &4901275363215742543
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162508098}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.2585394, y: 0.5151655, z: 1.942716}
