@@ -5969,6 +5969,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: NonneAI
       objectReference: {fileID: 0}
+    - target: {fileID: 7716427271009657468, guid: 60d0bfff4b9b3a24684e25ad177a85f0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7716427271009657465, guid: 60d0bfff4b9b3a24684e25ad177a85f0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7008,6 +7013,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: NonneAI (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7716427271009657468, guid: 60d0bfff4b9b3a24684e25ad177a85f0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7716427271009657465, guid: 60d0bfff4b9b3a24684e25ad177a85f0,
         type: 3}
@@ -12738,6 +12748,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: NonneAI (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7716427271009657468, guid: 60d0bfff4b9b3a24684e25ad177a85f0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7716427271009657465, guid: 60d0bfff4b9b3a24684e25ad177a85f0,
         type: 3}
