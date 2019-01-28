@@ -150,16 +150,19 @@ public class Lobby : MonoBehaviour
 	{
 		GameObject slot = this.slotList[GameManagerSingleton.Instance.indexSlotDictionnary[index]];
 
-		this.transform.parent.GetComponent<NavigationMenu>().click.Play();
-		slot.GetComponent<Image>().color = Color.green;
-		if (index == 1)
+		if (slot.GetComponent<Image>().color != Color.green)
+		{
+			this.transform.parent.GetComponent<NavigationMenu>().click.Play();
+			slot.GetComponent<Image>().color = Color.green;
+		}
+		/*if (index == 1)
 		{
 			slot.GetComponentInChildren<Text>().text = "Press Start to start";
 		}
 		else
 		{
 			slot.GetComponentInChildren<Text>().text = "";
-		}
+		}*/
 	}
 
 	private int GetFreeSlot()

@@ -56,7 +56,7 @@ public class HUD : MonoBehaviour
 	public void UpdateTimer(float newTimer)
 	{
 		string minutes = Mathf.Floor(newTimer / 60).ToString("00");
-		string seconds = (newTimer % 60).ToString("00");
+		string seconds = (newTimer % 60.0f).ToString("00");
 
 		this.timer.text = minutes + ":" + seconds;
 		//this.timer.fillAmount -= 1.0f / newTimer * Time.deltaTime;

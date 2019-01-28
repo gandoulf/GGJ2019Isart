@@ -14,13 +14,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game.unity
     guid: 210fbea1f2e01c841bee0d2d0468c5ea
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/GameTestEnzo.unity
     guid: d5a61f3eeedf51a418b211ac01c617c6
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MenuTestEnzo.unity
     guid: 9cd71cfef09ebcd4aa5c416242bd792b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TestFinalMap.unity
     guid: f34b81a594c120945bb03cc9c204c3fc
   m_configObjects:

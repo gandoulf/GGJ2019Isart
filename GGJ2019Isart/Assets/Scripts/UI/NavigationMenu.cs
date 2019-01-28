@@ -15,6 +15,8 @@ public class NavigationMenu : MonoBehaviour
 	public StudioEventEmitter click;
 	[SerializeField] private StudioEventEmitter switchUI;
 
+	private float timer;
+
 	private void Start()
 	{
 		if (this.defaultButton != null)
@@ -25,6 +27,27 @@ public class NavigationMenu : MonoBehaviour
 
 	private void Update()
 	{
+		if (this.timer == 0.0f)
+		{
+			if (Input.GetAxis("Joy1Vertical") > 0.8f)
+			{
+				EventSystem.current.SetSelectedGameObject(EventSystem.current.currentSelectedGameObject.GetComponent<Button>().FindSelectableOnDown().gameObject);
+				this.timer = 0.2f;
+			}
+			else if (Input.GetAxis("Joy1Vertical") < -0.8f)
+			{
+				EventSystem.current.SetSelectedGameObject(EventSystem.current.currentSelectedGameObject.GetComponent<Button>().FindSelectableOnUp().gameObject);
+				this.timer = 0.2f;
+			}
+		}
+		else
+		{
+			this.timer -= Time.deltaTime;
+			if (this.timer <= 0.0f)
+			{
+				this.timer = 0.0f;
+			}
+		}
 		GameObject selectedObj = EventSystem.current.currentSelectedGameObject;
 		Button selectedAsButton = null;
 

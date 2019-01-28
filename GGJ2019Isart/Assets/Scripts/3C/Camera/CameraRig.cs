@@ -27,7 +27,7 @@ public class CameraRig : MonoBehaviour
 		this.wallOccludedList = new List<GameObject>();
 	}
 
-	private void Start()
+	public void Init()
 	{
 		this.targets = GameObject.FindGameObjectsWithTag("Player");
 		UnityEngine.Assertions.Assert.IsTrue(this.targets.Length > 0, "Players were not found.");
@@ -40,13 +40,16 @@ public class CameraRig : MonoBehaviour
 
 	private void LateUpdate()
 	{
-		// Move the camera towards a desired position.
-		this.Move();
+		if (this.targets != null)
+		{
+			// Move the camera towards a desired position.
+			this.Move();
 
-		// Change the size of the camera based.
-		this.Zoom();
-		// Raycast in order to change wall alpha
-		this.CheckWall();
+			// Change the size of the camera based.
+			this.Zoom();
+			// Raycast in order to change wall alpha
+			this.CheckWall();
+		}
 	}
 
 	private void Move()

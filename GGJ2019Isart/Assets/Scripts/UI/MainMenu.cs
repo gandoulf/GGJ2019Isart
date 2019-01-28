@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
@@ -13,6 +14,14 @@ public class MainMenu : MonoBehaviour
 	private void Start()
 	{
 		this.StartCoroutine(this.FadeTitle());
+	}
+
+	private void Update()
+	{
+		if (Input.GetButtonDown("Joy1Action"))
+		{
+			EventSystem.current.currentSelectedGameObject.GetComponent<Button>().onClick.Invoke();
+		}
 	}
 
 	private IEnumerator FadeTitle()

@@ -72,7 +72,7 @@ public class GameManagerSingleton : MonoBehaviour
 			}
 			else
 			{
-				this.hud.UpdateTimer(this.timer);
+				this.hud.UpdateTimer(this.currentTimer);
 			}
 		}
 	}
@@ -94,7 +94,7 @@ public class GameManagerSingleton : MonoBehaviour
 		SceneManager.LoadScene("Menu");
 	}
 
-	public void SpawnPlayer()
+	private void SpawnPlayer()
 	{
 		int nbPlayer = this.indexSlotDictionnary.Count + 1;
 		GameObject[] spawners = GameObject.FindGameObjectsWithTag("Spawn");
@@ -103,9 +103,9 @@ public class GameManagerSingleton : MonoBehaviour
 		{
 			MainController controller = Instantiate(playerPrefab).GetComponent<MainController>();
 
-			controller.transform.position = spawners[i - 1].transform.position;
-			controller.transform.rotation = spawners[i - 1].transform.rotation;
 			controller.Init(i, this.indexSlotDictionnary[i]);
+			controller.gameObject.transform.position = spawners[i - 1].transform.position;
+			controller.gameObject.transform.rotation = spawners[i - 1].transform.rotation;
 		}
 	}
 
@@ -151,21 +151,39 @@ public class GameManagerSingleton : MonoBehaviour
 		}
 	}
 
+	private IEnumerator WaitBeforeSpawnPlayer()
+	{
+		yield return new WaitForSeconds(2.0f);
+
+		//yield return this.StartCoroutine(this.SpawnPlayer());
+		yield return new WaitForEndOfFrame();
+		this.currentTimer = this.timer;
+		this.hud = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUD>();
+		this.hud.Init(this.scoreNeeded[this.scoreNeeded.Count - 1]);
+		GameObject[] doors = GameObject.FindGameObjectsWithTag("Door");
+
+		this.doorList = new List<Door>();
+		for (int i = 0; i < doors.Length; i++)
+		{
+			this.doorList.Add(doors[i].GetComponent<Door>());
+		}
+		Camera.main.transform.parent.GetComponent<CameraRig>().Init();
+	}
+
 	private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
 	{
-		if (scene.name.Contains("Menu") == false)
-		{
-			this.SpawnPlayer();
-			this.currentTimer = this.timer;
-			this.hud = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUD>();
-			this.hud.Init(this.scoreNeeded[this.scoreNeeded.Count - 1]);
-			GameObject[] doors = GameObject.FindGameObjectsWithTag("Door");
+		//this.StartCoroutine(this.WaitBeforeSpawnPlayer());
+		this.SpawnPlayer();
+		this.currentTimer = this.timer;
+		this.hud = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUD>();
+		this.hud.Init(this.scoreNeeded[this.scoreNeeded.Count - 1]);
+		GameObject[] doors = GameObject.FindGameObjectsWithTag("Door");
 
-			this.doorList = new List<Door>();
-			for (int i = 0; i < doors.Length; i++)
-			{
-				this.doorList.Add(doors[i].GetComponent<Door>());
-			}
+		this.doorList = new List<Door>();
+		for (int i = 0; i < doors.Length; i++)
+		{
+			this.doorList.Add(doors[i].GetComponent<Door>());
 		}
+		Camera.main.transform.parent.GetComponent<CameraRig>().Init();
 	}
 }
